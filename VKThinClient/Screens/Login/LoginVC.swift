@@ -14,7 +14,6 @@ class LoginVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemTeal
         authService = SceneDelegate.shared().authService
     }
     
