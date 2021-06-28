@@ -3,16 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		369863CEAF734E1655AC9555 /* Pods_VKThinClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC82CBC86A61041A42C60D2E /* Pods_VKThinClient.framework */; };
 		400E1FE22689CFD60010BCB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400E1FE12689CFD60010BCB9 /* AppDelegate.swift */; };
 		400E1FE42689CFD60010BCB9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400E1FE32689CFD60010BCB9 /* SceneDelegate.swift */; };
 		400E1FE92689CFD60010BCB9 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 400E1FE72689CFD60010BCB9 /* Login.storyboard */; };
 		400E1FEB2689CFD80010BCB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 400E1FEA2689CFD80010BCB9 /* Assets.xcassets */; };
 		400E1FEE2689CFD80010BCB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 400E1FEC2689CFD80010BCB9 /* LaunchScreen.storyboard */; };
 		400E1FFA2689D0B30010BCB9 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400E1FF92689D0B30010BCB9 /* LoginVC.swift */; };
+		400E202C2689F35E0010BCB9 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400E202B2689F35E0010BCB9 /* AuthService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,10 @@
 		400E1FED2689CFD80010BCB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		400E1FEF2689CFD80010BCB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		400E1FF92689D0B30010BCB9 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		400E202B2689F35E0010BCB9 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		61DE17E85CB82C9E77D2C012 /* Pods-VKThinClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKThinClient.debug.xcconfig"; path = "Target Support Files/Pods-VKThinClient/Pods-VKThinClient.debug.xcconfig"; sourceTree = "<group>"; };
+		6583A13F80315CE6FF99B050 /* Pods-VKThinClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKThinClient.release.xcconfig"; path = "Target Support Files/Pods-VKThinClient/Pods-VKThinClient.release.xcconfig"; sourceTree = "<group>"; };
+		EC82CBC86A61041A42C60D2E /* Pods_VKThinClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VKThinClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				369863CEAF734E1655AC9555 /* Pods_VKThinClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +49,8 @@
 			children = (
 				400E1FE02689CFD60010BCB9 /* VKThinClient */,
 				400E1FDF2689CFD60010BCB9 /* Products */,
+				B7A0EABF6F54C25B62BF8635 /* Pods */,
+				64D8A363ECCE87746F02B707 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,6 +77,7 @@
 		400E1FF52689D01B0010BCB9 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				400E202A2689F34D0010BCB9 /* Services */,
 				400E1FE12689CFD60010BCB9 /* AppDelegate.swift */,
 				400E1FE32689CFD60010BCB9 /* SceneDelegate.swift */,
 			);
@@ -86,8 +96,8 @@
 		400E1FF72689D0660010BCB9 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				400E1FE72689CFD60010BCB9 /* Login.storyboard */,
 				400E1FF92689D0B30010BCB9 /* LoginVC.swift */,
+				400E1FE72689CFD60010BCB9 /* Login.storyboard */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -99,6 +109,31 @@
 			path = Workflow;
 			sourceTree = "<group>";
 		};
+		400E202A2689F34D0010BCB9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				400E202B2689F35E0010BCB9 /* AuthService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		64D8A363ECCE87746F02B707 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EC82CBC86A61041A42C60D2E /* Pods_VKThinClient.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B7A0EABF6F54C25B62BF8635 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				61DE17E85CB82C9E77D2C012 /* Pods-VKThinClient.debug.xcconfig */,
+				6583A13F80315CE6FF99B050 /* Pods-VKThinClient.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,9 +141,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 400E1FF22689CFD80010BCB9 /* Build configuration list for PBXNativeTarget "VKThinClient" */;
 			buildPhases = (
+				32D65148B54CBD2FFCD45159 /* [CP] Check Pods Manifest.lock */,
 				400E1FDA2689CFD60010BCB9 /* Sources */,
 				400E1FDB2689CFD60010BCB9 /* Frameworks */,
 				400E1FDC2689CFD60010BCB9 /* Resources */,
+				14EB4457A97435F1C8F2F881 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -164,6 +201,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		14EB4457A97435F1C8F2F881 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VKThinClient/Pods-VKThinClient-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VKThinClient/Pods-VKThinClient-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VKThinClient/Pods-VKThinClient-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		32D65148B54CBD2FFCD45159 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VKThinClient-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		400E1FDA2689CFD60010BCB9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -172,6 +251,7 @@
 				400E1FE22689CFD60010BCB9 /* AppDelegate.swift in Sources */,
 				400E1FE42689CFD60010BCB9 /* SceneDelegate.swift in Sources */,
 				400E1FFA2689D0B30010BCB9 /* LoginVC.swift in Sources */,
+				400E202C2689F35E0010BCB9 /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +395,7 @@
 		};
 		400E1FF32689CFD80010BCB9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 61DE17E85CB82C9E77D2C012 /* Pods-VKThinClient.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -334,6 +415,7 @@
 		};
 		400E1FF42689CFD80010BCB9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6583A13F80315CE6FF99B050 /* Pods-VKThinClient.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
