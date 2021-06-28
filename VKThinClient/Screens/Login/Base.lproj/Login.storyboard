@@ -32,10 +32,11 @@
                             <constraint firstItem="vPw-XM-ueW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="wR5-QQ-LoC"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="nxu-0z-gFB"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="122" y="119"/>
+            <point key="canvasLocation" x="1031.8840579710145" y="118.52678571428571"/>
         </scene>
     </scenes>
     <resources>

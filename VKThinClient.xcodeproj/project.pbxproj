@@ -15,6 +15,10 @@
 		400E1FEE2689CFD80010BCB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 400E1FEC2689CFD80010BCB9 /* LaunchScreen.storyboard */; };
 		400E1FFA2689D0B30010BCB9 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400E1FF92689D0B30010BCB9 /* LoginVC.swift */; };
 		400E202C2689F35E0010BCB9 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400E202B2689F35E0010BCB9 /* AuthService.swift */; };
+		405A70472689FAEF00AB8650 /* Workflow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 405A70462689FAEE00AB8650 /* Workflow.storyboard */; };
+		405A70492689FAFB00AB8650 /* WorkflowVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405A70482689FAFB00AB8650 /* WorkflowVC.swift */; };
+		405A704D2689FEAF00AB8650 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405A704C2689FEAF00AB8650 /* FeedVC.swift */; };
+		405A704F2689FEBB00AB8650 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405A704E2689FEBB00AB8650 /* ProfileVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +31,10 @@
 		400E1FEF2689CFD80010BCB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		400E1FF92689D0B30010BCB9 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		400E202B2689F35E0010BCB9 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		405A70462689FAEE00AB8650 /* Workflow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Workflow.storyboard; sourceTree = "<group>"; };
+		405A70482689FAFB00AB8650 /* WorkflowVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkflowVC.swift; sourceTree = "<group>"; };
+		405A704C2689FEAF00AB8650 /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
+		405A704E2689FEBB00AB8650 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		61DE17E85CB82C9E77D2C012 /* Pods-VKThinClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKThinClient.debug.xcconfig"; path = "Target Support Files/Pods-VKThinClient/Pods-VKThinClient.debug.xcconfig"; sourceTree = "<group>"; };
 		6583A13F80315CE6FF99B050 /* Pods-VKThinClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKThinClient.release.xcconfig"; path = "Target Support Files/Pods-VKThinClient/Pods-VKThinClient.release.xcconfig"; sourceTree = "<group>"; };
 		EC82CBC86A61041A42C60D2E /* Pods_VKThinClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VKThinClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,9 +85,9 @@
 		400E1FF52689D01B0010BCB9 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				400E202A2689F34D0010BCB9 /* Services */,
 				400E1FE12689CFD60010BCB9 /* AppDelegate.swift */,
 				400E1FE32689CFD60010BCB9 /* SceneDelegate.swift */,
+				400E202A2689F34D0010BCB9 /* Services */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -105,6 +113,10 @@
 		400E1FF82689D06B0010BCB9 /* Workflow */ = {
 			isa = PBXGroup;
 			children = (
+				405A704A2689FE9400AB8650 /* Feed */,
+				405A704B2689FE9900AB8650 /* Profile */,
+				405A70462689FAEE00AB8650 /* Workflow.storyboard */,
+				405A70482689FAFB00AB8650 /* WorkflowVC.swift */,
 			);
 			path = Workflow;
 			sourceTree = "<group>";
@@ -115,6 +127,22 @@
 				400E202B2689F35E0010BCB9 /* AuthService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		405A704A2689FE9400AB8650 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				405A704C2689FEAF00AB8650 /* FeedVC.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		405A704B2689FE9900AB8650 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				405A704E2689FEBB00AB8650 /* ProfileVC.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		64D8A363ECCE87746F02B707 /* Frameworks */ = {
@@ -194,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				400E1FEE2689CFD80010BCB9 /* LaunchScreen.storyboard in Resources */,
+				405A70472689FAEF00AB8650 /* Workflow.storyboard in Resources */,
 				400E1FEB2689CFD80010BCB9 /* Assets.xcassets in Resources */,
 				400E1FE92689CFD60010BCB9 /* Login.storyboard in Resources */,
 			);
@@ -248,8 +277,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				405A704D2689FEAF00AB8650 /* FeedVC.swift in Sources */,
 				400E1FE22689CFD60010BCB9 /* AppDelegate.swift in Sources */,
+				405A704F2689FEBB00AB8650 /* ProfileVC.swift in Sources */,
 				400E1FE42689CFD60010BCB9 /* SceneDelegate.swift in Sources */,
+				405A70492689FAFB00AB8650 /* WorkflowVC.swift in Sources */,
 				400E1FFA2689D0B30010BCB9 /* LoginVC.swift in Sources */,
 				400E202C2689F35E0010BCB9 /* AuthService.swift in Sources */,
 			);

@@ -69,7 +69,8 @@ extension SceneDelegate: AuthServiceDelegate {
     }
     
     func authServiceSignIn() {
-        print(#function)
+        let workflowVC = UIStoryboard(name: "Workflow", bundle: nil).instantiateViewController(identifier: "navigationVC")
+        window?.rootViewController = workflowVC
     }
     
     func authServiceSignInDidFail() {
