@@ -22,9 +22,7 @@ enum NetworkService {
     
     private func params(appending newParams: [String: String]) -> [String: String] {
         var params = params
-        for (key, value) in newParams {
-            params[key] = value
-        }
+        newParams.forEach { params[$0] = $1 }
         return params
     }
 }

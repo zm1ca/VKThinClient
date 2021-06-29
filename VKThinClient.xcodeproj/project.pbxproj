@@ -18,6 +18,7 @@
 		403A483F268B0FFA00F41766 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403A483E268B0FFA00F41766 /* NetworkService.swift */; };
 		403A4842268B108D00F41766 /* FeedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403A4841268B108D00F41766 /* FeedResponse.swift */; };
 		403A4844268B1A1B00F41766 /* ProfileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403A4843268B1A1B00F41766 /* ProfileInfo.swift */; };
+		403A4846268B1F1500F41766 /* DataFetchingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403A4845268B1F1500F41766 /* DataFetchingService.swift */; };
 		405A70472689FAEF00AB8650 /* Workflow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 405A70462689FAEE00AB8650 /* Workflow.storyboard */; };
 		405A70492689FAFB00AB8650 /* WorkflowVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405A70482689FAFB00AB8650 /* WorkflowVC.swift */; };
 		405A704D2689FEAF00AB8650 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405A704C2689FEAF00AB8650 /* FeedVC.swift */; };
@@ -40,6 +41,7 @@
 		403A483E268B0FFA00F41766 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		403A4841268B108D00F41766 /* FeedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedResponse.swift; sourceTree = "<group>"; };
 		403A4843268B1A1B00F41766 /* ProfileInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfo.swift; sourceTree = "<group>"; };
+		403A4845268B1F1500F41766 /* DataFetchingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetchingService.swift; sourceTree = "<group>"; };
 		405A70462689FAEE00AB8650 /* Workflow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Workflow.storyboard; sourceTree = "<group>"; };
 		405A70482689FAFB00AB8650 /* WorkflowVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkflowVC.swift; sourceTree = "<group>"; };
 		405A704C2689FEAF00AB8650 /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
@@ -136,9 +138,9 @@
 		400E202A2689F34D0010BCB9 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				403A4840268B107B00F41766 /* Models */,
-				400E202B2689F35E0010BCB9 /* AuthService.swift */,
-				403A483E268B0FFA00F41766 /* NetworkService.swift */,
+				403A4847268B1F2000F41766 /* Authentification */,
+				403A4848268B1F3000F41766 /* Networking */,
+				403A4849268B1F4E00F41766 /* Fetching Data */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -150,6 +152,31 @@
 				403A4843268B1A1B00F41766 /* ProfileInfo.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		403A4847268B1F2000F41766 /* Authentification */ = {
+			isa = PBXGroup;
+			children = (
+				400E202B2689F35E0010BCB9 /* AuthService.swift */,
+			);
+			path = Authentification;
+			sourceTree = "<group>";
+		};
+		403A4848268B1F3000F41766 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				403A483E268B0FFA00F41766 /* NetworkService.swift */,
+				403A4840268B107B00F41766 /* Models */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		403A4849268B1F4E00F41766 /* Fetching Data */ = {
+			isa = PBXGroup;
+			children = (
+				403A4845268B1F1500F41766 /* DataFetchingService.swift */,
+			);
+			path = "Fetching Data";
 			sourceTree = "<group>";
 		};
 		405A704A2689FE9400AB8650 /* Feed */ = {
@@ -317,6 +344,7 @@
 				400E1FE22689CFD60010BCB9 /* AppDelegate.swift in Sources */,
 				405A704F2689FEBB00AB8650 /* ProfileVC.swift in Sources */,
 				400E1FE42689CFD60010BCB9 /* SceneDelegate.swift in Sources */,
+				403A4846268B1F1500F41766 /* DataFetchingService.swift in Sources */,
 				403A4842268B108D00F41766 /* FeedResponse.swift in Sources */,
 				405A70492689FAFB00AB8650 /* WorkflowVC.swift in Sources */,
 				400E1FFA2689D0B30010BCB9 /* LoginVC.swift in Sources */,
