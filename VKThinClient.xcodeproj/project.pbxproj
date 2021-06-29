@@ -23,6 +23,8 @@
 		405A7054268A18E700AB8650 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 405A7053268A18E700AB8650 /* HeaderView.xib */; };
 		405A7056268A1AF000AB8650 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405A7055268A1AF000AB8650 /* ProfileCell.swift */; };
 		407CC574268AF83E007AEA1F /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407CC573268AF83E007AEA1F /* NetworkService.swift */; };
+		407CC577268B0354007AEA1F /* FeedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407CC576268B0354007AEA1F /* FeedResponse.swift */; };
+		407CC579268B05FC007AEA1F /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407CC578268B05FC007AEA1F /* NetworkDataFetcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,8 @@
 		405A7053268A18E700AB8650 /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		405A7055268A1AF000AB8650 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		407CC573268AF83E007AEA1F /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		407CC576268B0354007AEA1F /* FeedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedResponse.swift; sourceTree = "<group>"; };
+		407CC578268B05FC007AEA1F /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
 		61DE17E85CB82C9E77D2C012 /* Pods-VKThinClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKThinClient.debug.xcconfig"; path = "Target Support Files/Pods-VKThinClient/Pods-VKThinClient.debug.xcconfig"; sourceTree = "<group>"; };
 		6583A13F80315CE6FF99B050 /* Pods-VKThinClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKThinClient.release.xcconfig"; path = "Target Support Files/Pods-VKThinClient/Pods-VKThinClient.release.xcconfig"; sourceTree = "<group>"; };
 		EC82CBC86A61041A42C60D2E /* Pods_VKThinClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VKThinClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,8 +136,10 @@
 		400E202A2689F34D0010BCB9 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				407CC575268B034C007AEA1F /* Models */,
 				400E202B2689F35E0010BCB9 /* AuthService.swift */,
 				407CC573268AF83E007AEA1F /* NetworkService.swift */,
+				407CC578268B05FC007AEA1F /* NetworkDataFetcher.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -163,6 +169,14 @@
 				405A7053268A18E700AB8650 /* HeaderView.xib */,
 			);
 			path = Header;
+			sourceTree = "<group>";
+		};
+		407CC575268B034C007AEA1F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				407CC576268B0354007AEA1F /* FeedResponse.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		64D8A363ECCE87746F02B707 /* Frameworks */ = {
@@ -298,6 +312,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				407CC579268B05FC007AEA1F /* NetworkDataFetcher.swift in Sources */,
 				407CC574268AF83E007AEA1F /* NetworkService.swift in Sources */,
 				405A704D2689FEAF00AB8650 /* FeedVC.swift in Sources */,
 				400E1FE22689CFD60010BCB9 /* AppDelegate.swift in Sources */,
@@ -305,6 +320,7 @@
 				400E1FE42689CFD60010BCB9 /* SceneDelegate.swift in Sources */,
 				405A70492689FAFB00AB8650 /* WorkflowVC.swift in Sources */,
 				400E1FFA2689D0B30010BCB9 /* LoginVC.swift in Sources */,
+				407CC577268B0354007AEA1F /* FeedResponse.swift in Sources */,
 				405A7056268A1AF000AB8650 /* ProfileCell.swift in Sources */,
 				400E202C2689F35E0010BCB9 /* AuthService.swift in Sources */,
 				405A7052268A18DD00AB8650 /* HeaderView.swift in Sources */,
