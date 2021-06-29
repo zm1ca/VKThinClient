@@ -1,16 +1,30 @@
 PODS:
+  - Alamofire (4.9.1)
+  - Moya (13.0.1):
+    - Moya/Core (= 13.0.1)
+  - Moya/Core (13.0.1):
+    - Alamofire (~> 4.1)
+    - Result (~> 4.1)
+  - Result (4.1.0)
   - VK-ios-sdk (1.6.2)
 
 DEPENDENCIES:
+  - Moya
   - VK-ios-sdk
 
 SPEC REPOS:
   trunk:
+    - Alamofire
+    - Moya
+    - Result
     - VK-ios-sdk
 
 SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   VK-ios-sdk: 5bcf00a2014a7323f98db9328b603d4f96635caa
 
-PODFILE CHECKSUM: 024c019ce067e9e1361e87d064a931555c318130
+PODFILE CHECKSUM: e1d1527736c9952f486dd04f3f521ea06eac8c67
 
 COCOAPODS: 1.10.1
