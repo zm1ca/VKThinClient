@@ -7,12 +7,9 @@
 
 import UIKit
 
-protocol VKFeedCell {
-    func set(with post: Post)
-}
-
-class FeedCell: UITableViewCell, VKFeedCell {
+class FeedCell: UITableViewCell {
     
+    @IBOutlet weak var authorPhotoImageView: UIImageView!
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var sourceNameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -39,19 +36,23 @@ class FeedCell: UITableViewCell, VKFeedCell {
         backgroundColor = .clear
         container.layer.cornerRadius = 10
         container.backgroundColor = .white
+        postTextLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+        postTextLabel.sizeToFit()
+        authorPhotoImageView.layer.cornerRadius = authorPhotoImageView.layer.bounds.width / 2
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
-    func set(with post: Post) {
+    func set(with post: Post, by author: ProfileRepresenatable) {
         postTextLabel.text      = post.text
         likesCountLabel.text    = "\((post.likes?.count ?? 0).shortRepresentation)"
         commentsCountLabel.text = "\((post.comments?.count ?? 0).shortRepresentation)"
         sharesCountLabel.text   = "\((post.reposts?.count ?? 0).shortRepresentation)"
         viewsCountLabel.text    = "\((post.views?.count ?? 0).shortRepresentation)"
         dateLabel.text          = dateFormatter.string(from: Date(timeIntervalSince1970: post.date))
+        sourceNameLabel.text    = author.name
     }
     
 }

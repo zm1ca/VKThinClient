@@ -11,6 +11,6 @@ struct UserResponseWrapped: Decodable {
     let response: [UserResponse]
 }
 
-struct UserResponse: Decodable {
+struct UserResponse: Decodable, VKResponse {
     let photo100: String?
 }

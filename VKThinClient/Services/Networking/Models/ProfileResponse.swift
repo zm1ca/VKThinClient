@@ -8,10 +8,10 @@
 import Foundation
 
 struct ProfileInfoWrapped: Decodable {
-    let response: ProfileInfo
+    let response: ProfileResponse
 }
 
-struct ProfileInfo: Decodable {
+struct ProfileResponse: Decodable, VKResponse {
     let firstName: String
     let lastName:  String
     let id:        Int

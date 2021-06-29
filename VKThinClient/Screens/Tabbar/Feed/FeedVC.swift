@@ -10,11 +10,15 @@ import Moya
 
 class FeedVC: UIViewController {
     
-    let dataFetcher = DataFetchingService()
-    @IBOutlet weak var tableView: UITableView!
+    var posts    = [Post]()
+    var groups   = [Group]()
+    var profiles = [Profile]()
     
-    var posts = [Post]()
+    let dataFetcher = DataFetchingService()
+    
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,9 +35,13 @@ class FeedVC: UIViewController {
                 self.presentAlertOnMainThread(withTitle: "Networking Error", andMessage: "Unable to load feed")
                 return
             }
+            
+            self.activityIndicator.stopAnimating()
+            self.posts    = feed.items
+            self.groups   = feed.groups
+            self.profiles = feed.profiles
+            
             DispatchQueue.main.async {
-                self.activityIndicator.stopAnimating()
-                self.posts = feed.items
                 self.tableView.reloadData()
             }
         }
@@ -49,13 +57,19 @@ extension FeedVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath) as! FeedCell
         let post = posts[indexPath.row]
-        cell.set(with: post)
+        cell.set(with: post, by: author(with: post.sourceId))
         return cell
+    }
+    
+    private func author(with sourceID: Int) -> ProfileRepresenatable {
+        let authorSource: [ProfileRepresenatable] = sourceID >= 0 ? self.profiles : self.groups
+        let normalSourceId = abs(sourceID)
+        return authorSource.first { $0.id == normalSourceId }!
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         guard let text = posts[indexPath.row].text else { return 0 }
-        return text.height(font: UIFont.systemFont(ofSize: 17, weight: .regular)) + 140
+        return text.height(font: UIFont.systemFont(ofSize: 17, weight: .regular)) + 280
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
