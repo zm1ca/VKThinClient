@@ -44,12 +44,12 @@ class DataFetchingService {
         }
     }
     
-    func getUserAvatar(completion: @escaping (UserResponse?) -> Void) {
+    func getUserAvatar(completion: @escaping (AvatarResponse?) -> Void) {
         feedProvider.request(.getUserAvatar) { result in
             switch result {
             case .success(let response):
                 let response = self.decodeJSON(
-                    type: UserResponseWrapped.self,
+                    type: AvatarResponseWrapped.self,
                     from: response.data
                 )
                 completion(response?.response.first)

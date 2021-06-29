@@ -10,8 +10,9 @@ import RealmSwift
 
 class ImageLoader  {
     
-    let realm = try! Realm()
     static let shared = ImageLoader()
+      
+    let realm = try! Realm()
     lazy var cache: [String: UIImage] = {
         var cache = [String: UIImage]()
         if let loadedCache = realm.objects(Cache.self).first?.cache {
@@ -19,7 +20,6 @@ class ImageLoader  {
         }
         return cache
     }()
-    
     
     private init() { }
     

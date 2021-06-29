@@ -10,40 +10,60 @@ import UIKit
 class ProfileVC: UIViewController {
     
     let dataFetcher = DataFetchingService()
-    let cells = ["Друзья", "Группы", "Музыка", "Сообщения"]
-    var avatarLink: String!
 
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var contentView:     UIView!
+    @IBOutlet weak var avatarImageView: AvatarImageView!
+    @IBOutlet weak var nameLabel:       UILabel!
+    @IBOutlet weak var idLabel:         UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataFetcher.getUserAvatar { self.avatarLink = $0?.photo100!}
+        contentView.subviews.forEach { $0.alpha = 0 }
+        configireUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.visibleViewController?.title = "Profile"
     }
-}
-
-extension ProfileVC: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        cells.count
+    
+    private func configireUI() {
+        view.bringSubviewToFront(activityIndicator)
+        contentView.layer.cornerRadius = 10
+        setAvatar()
+        setProfileInfo()
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ProfileCell.reuseID, for: indexPath) as! ProfileCell
-        cell.cathegory.text = cells[indexPath.row]
-        return cell
+    private func setAvatar() {
+        dataFetcher.getUserAvatar { result in
+            guard let result = result, let avatarURL = result.photo100 else { return }
+            ImageLoader.shared.downloadImage(from: avatarURL) { image in
+                guard let image = image else { return }
+                DispatchQueue.main.async { [self] in
+                    self.avatarImageView.image = image
+                    presentUIIfNeeded()
+                }
+            }
+        }
     }
     
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        UIView()
+    private func setProfileInfo() {
+        dataFetcher.getProfileInfo { userResponse in
+            guard let userResponse = userResponse else { return }
+            DispatchQueue.main.async { [self] in
+                self.nameLabel.text = userResponse.name
+                self.idLabel.text   = "#\(userResponse.id)"
+                presentUIIfNeeded()
+            }
+        }
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return HeaderView.instantiate()
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        150
+    private func presentUIIfNeeded() {
+        guard activityIndicator.isAnimating else { return }
+        UIView.animate(withDuration: 1) {
+            self.contentView.subviews.forEach { $0.alpha = 1.0 }
+        }
+        self.activityIndicator.stopAnimating()
     }
 }

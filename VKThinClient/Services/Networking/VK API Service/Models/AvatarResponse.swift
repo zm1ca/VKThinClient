@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct UserResponseWrapped: Decodable {
-    let response: [UserResponse]
+struct AvatarResponseWrapped: Decodable {
+    let response: [AvatarResponse]
 }
 
-struct UserResponse: Decodable, VKResponse {
+struct AvatarResponse: Decodable, VKResponse {
     let photo100: String?
 }

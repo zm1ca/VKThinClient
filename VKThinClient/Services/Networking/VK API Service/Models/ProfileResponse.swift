@@ -18,4 +18,6 @@ struct ProfileResponse: Decodable, VKResponse {
     let sex:       Int
     let phone:     String
     let relation:  Int
+    
+    var name: String { firstName + " " + lastName }
 }
