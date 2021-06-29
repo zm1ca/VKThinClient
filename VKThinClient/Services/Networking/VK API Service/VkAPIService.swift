@@ -8,7 +8,7 @@
 import Foundation
 import Moya
 
-enum NetworkService {
+enum VkAPIService {
     case getPosts
     case getUserInfo
     case getUserAvatar
@@ -28,7 +28,7 @@ enum NetworkService {
     }
 }
 
-extension NetworkService: TargetType {
+extension VkAPIService: TargetType {
     
     var baseURL: URL { URL(string: "https://api.vk.com")! }
     
@@ -48,7 +48,7 @@ extension NetworkService: TargetType {
         switch self {
         case .getPosts:
             return .requestParameters(
-                parameters: params(appending: ["filters":"post", "max_photos":1]),
+                parameters: params(appending: ["filters": "post", "count": 20]),
                 encoding: URLEncoding.queryString
             )
         case .getUserInfo:

@@ -13,5 +13,9 @@ class TabbarVC: UITabBarController {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
     }
-
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        ImageLoader.shared.saveCache()
+    }
 }

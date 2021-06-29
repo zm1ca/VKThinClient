@@ -4,4 +4,5 @@ inhibit_all_warnings!
 target 'VKThinClient' do
   pod 'VK-ios-sdk'
   pod 'Moya'
+  pod 'RealmSwift'
 end

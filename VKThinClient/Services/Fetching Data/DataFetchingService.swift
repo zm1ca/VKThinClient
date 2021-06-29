@@ -10,7 +10,7 @@ import Moya
 
 class DataFetchingService {
     
-    let feedProvider = MoyaProvider<NetworkService>()
+    let feedProvider = MoyaProvider<VkAPIService>()
     
     func getPosts(completion: @escaping (FeedResponse?) -> Void) {
         feedProvider.request(.getPosts) { result in
