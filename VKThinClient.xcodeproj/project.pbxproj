@@ -15,6 +15,9 @@
 		400E1FEE2689CFD80010BCB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 400E1FEC2689CFD80010BCB9 /* LaunchScreen.storyboard */; };
 		400E1FFA2689D0B30010BCB9 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400E1FF92689D0B30010BCB9 /* LoginVC.swift */; };
 		400E202C2689F35E0010BCB9 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400E202B2689F35E0010BCB9 /* AuthService.swift */; };
+		403A483F268B0FFA00F41766 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403A483E268B0FFA00F41766 /* NetworkService.swift */; };
+		403A4842268B108D00F41766 /* FeedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403A4841268B108D00F41766 /* FeedResponse.swift */; };
+		403A4844268B1A1B00F41766 /* ProfileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403A4843268B1A1B00F41766 /* ProfileInfo.swift */; };
 		405A70472689FAEF00AB8650 /* Workflow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 405A70462689FAEE00AB8650 /* Workflow.storyboard */; };
 		405A70492689FAFB00AB8650 /* WorkflowVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405A70482689FAFB00AB8650 /* WorkflowVC.swift */; };
 		405A704D2689FEAF00AB8650 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405A704C2689FEAF00AB8650 /* FeedVC.swift */; };
@@ -34,6 +37,9 @@
 		400E1FEF2689CFD80010BCB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		400E1FF92689D0B30010BCB9 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		400E202B2689F35E0010BCB9 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		403A483E268B0FFA00F41766 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		403A4841268B108D00F41766 /* FeedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedResponse.swift; sourceTree = "<group>"; };
+		403A4843268B1A1B00F41766 /* ProfileInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfo.swift; sourceTree = "<group>"; };
 		405A70462689FAEE00AB8650 /* Workflow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Workflow.storyboard; sourceTree = "<group>"; };
 		405A70482689FAFB00AB8650 /* WorkflowVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkflowVC.swift; sourceTree = "<group>"; };
 		405A704C2689FEAF00AB8650 /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
@@ -130,9 +136,20 @@
 		400E202A2689F34D0010BCB9 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				403A4840268B107B00F41766 /* Models */,
 				400E202B2689F35E0010BCB9 /* AuthService.swift */,
+				403A483E268B0FFA00F41766 /* NetworkService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		403A4840268B107B00F41766 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				403A4841268B108D00F41766 /* FeedResponse.swift */,
+				403A4843268B1A1B00F41766 /* ProfileInfo.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		405A704A2689FE9400AB8650 /* Feed */ = {
@@ -295,13 +312,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				403A483F268B0FFA00F41766 /* NetworkService.swift in Sources */,
 				405A704D2689FEAF00AB8650 /* FeedVC.swift in Sources */,
 				400E1FE22689CFD60010BCB9 /* AppDelegate.swift in Sources */,
 				405A704F2689FEBB00AB8650 /* ProfileVC.swift in Sources */,
 				400E1FE42689CFD60010BCB9 /* SceneDelegate.swift in Sources */,
+				403A4842268B108D00F41766 /* FeedResponse.swift in Sources */,
 				405A70492689FAFB00AB8650 /* WorkflowVC.swift in Sources */,
 				400E1FFA2689D0B30010BCB9 /* LoginVC.swift in Sources */,
 				405A7056268A1AF000AB8650 /* ProfileCell.swift in Sources */,
+				403A4844268B1A1B00F41766 /* ProfileInfo.swift in Sources */,
 				400E202C2689F35E0010BCB9 /* AuthService.swift in Sources */,
 				405A7052268A18DD00AB8650 /* HeaderView.swift in Sources */,
 			);
