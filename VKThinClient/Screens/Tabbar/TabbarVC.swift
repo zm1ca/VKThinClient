@@ -1,5 +1,5 @@
 //
-//  WorkflowVC.swift
+//  TabbarVC.swift
 //  VKThinClient
 //
 //  Created by Źmicier Fiedčanka on 28.06.21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WorkflowVC: UITabBarController {
+class TabbarVC: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

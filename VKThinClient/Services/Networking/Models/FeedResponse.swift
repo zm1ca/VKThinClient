@@ -12,18 +12,17 @@ struct FeedResponseWrapped: Decodable {
 }
 
 struct FeedResponse: Decodable {
-    let items: [FeedItem]
+    let items: [Post]
 }
 
-struct FeedItem:  Decodable {
-    let sourceId: Int
-    let postId:   Int
-    let text:     String?
-    let date:     Double
-    let comments: CountaleItem?
-    let likes:    CountaleItem?
-    let reposts:  CountaleItem?
-    let views:    CountaleItem?
+struct Post:     Decodable {
+    let sourceId:    Int
+    let text:        String?
+    let date:        Double
+    let comments:    CountaleItem?
+    let likes:       CountaleItem?
+    let reposts:     CountaleItem?
+    let views:       CountaleItem?
 }
 
 struct CountaleItem: Decodable {

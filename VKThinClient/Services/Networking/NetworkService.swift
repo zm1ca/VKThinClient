@@ -16,11 +16,11 @@ enum NetworkService {
         SceneDelegate.shared().authService
     }
     
-    private var params: [String: String] {
+    private var params: [String: Any] {
         ["access_token": authService.token!, "v": "5.92"]
     }
     
-    private func params(appending newParams: [String: String]) -> [String: String] {
+    private func params(appending newParams: [String: Any]) -> [String: Any] {
         var params = params
         newParams.forEach { params[$0] = $1 }
         return params
@@ -46,7 +46,7 @@ extension NetworkService: TargetType {
         switch self {
         case .getPosts:
             return .requestParameters(
-                parameters: params(appending: ["filters":"post"]),
+                parameters: params(appending: ["filters":"post", "max_photos":1]),
                 encoding: URLEncoding.queryString
             )
         case .getUserInfo:

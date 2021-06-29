@@ -14,10 +14,7 @@ class ProfileVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataFetcher.getProfileInfo{ profileInfo in
-            guard let profileInfo = profileInfo else { print("Failed to get profile info"); return }
-            print(profileInfo)
-        }
+        
     }
 }
 
