@@ -184,7 +184,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="feed" id="jAf-sU-yaD"/>
-                    <navigationItem key="navigationItem" id="3aZ-Fu-o0E"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="3aZ-Fu-o0E"/>
                     <connections>
                         <outlet property="activityIndicator" destination="1NO-xs-TuZ" id="iFf-XP-QhQ"/>
                         <outlet property="tableView" destination="MLY-sI-7i3" id="deZ-2J-5JA"/>
@@ -282,6 +282,12 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.44542384149999997" green="0.57684344050000003" blue="0.7359984517" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

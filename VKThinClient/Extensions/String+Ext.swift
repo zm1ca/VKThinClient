@@ -8,7 +8,8 @@
 import UIKit
 
 extension String {
-    func height(withConstrainedWidth width: CGFloat, font: UIFont) -> CGFloat {
+    func height(font: UIFont) -> CGFloat {
+        let width = UIScreen.main.bounds.size.width
         let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
         let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
     

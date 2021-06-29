@@ -11,6 +11,7 @@ import Moya
 enum NetworkService {
     case getPosts
     case getUserInfo
+    case getUserAvatar
     
     private var authService: AuthService {
         SceneDelegate.shared().authService
@@ -33,8 +34,9 @@ extension NetworkService: TargetType {
     
     var path: String {
         switch self {
-        case .getPosts:    return "/method/newsfeed.get"
-        case .getUserInfo: return "/method/account.getProfileInfo"
+        case .getPosts:      return "/method/newsfeed.get"
+        case .getUserInfo:   return "/method/account.getProfileInfo"
+        case .getUserAvatar: return "/method/users.get"
         }
     }
     
@@ -52,6 +54,11 @@ extension NetworkService: TargetType {
         case .getUserInfo:
             return .requestParameters(
                 parameters: params,
+                encoding: URLEncoding.queryString
+            )
+        case .getUserAvatar:
+            return .requestParameters(
+                parameters: params(appending: ["user_ids": authService.userId!, "fields": "photo_100"]),
                 encoding: URLEncoding.queryString
             )
         }

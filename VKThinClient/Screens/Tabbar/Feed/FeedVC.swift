@@ -24,6 +24,7 @@ class FeedVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.visibleViewController?.title = "Feed"
         activityIndicator.startAnimating()
         dataFetcher.getPosts { feedResponse in
             guard let feed = feedResponse else {
@@ -54,8 +55,7 @@ extension FeedVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         guard let text = posts[indexPath.row].text else { return 0 }
-
-        return text.height(withConstrainedWidth: 312, font: UIFont.systemFont(ofSize: 17, weight: .regular)) + 140
+        return text.height(font: UIFont.systemFont(ofSize: 17, weight: .regular)) + 140
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
