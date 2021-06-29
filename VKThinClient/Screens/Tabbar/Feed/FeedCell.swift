@@ -9,6 +9,8 @@ import UIKit
 
 class FeedCell: UITableViewCell {
     
+    let imageLoader = ImageLoader.shared
+    
     @IBOutlet weak var authorPhotoImageView: UIImageView!
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var sourceNameLabel: UILabel!
@@ -18,6 +20,8 @@ class FeedCell: UITableViewCell {
     @IBOutlet weak var commentsCountLabel: UILabel!
     @IBOutlet weak var sharesCountLabel: UILabel!
     @IBOutlet weak var viewsCountLabel: UILabel!
+    @IBOutlet weak var postPhotoImageView: UIImageView!
+    @IBOutlet weak var postPhotoHeightConstraint: NSLayoutConstraint!
     
     let dateFormatter: DateFormatter = {
         let df = DateFormatter()
@@ -53,6 +57,22 @@ class FeedCell: UITableViewCell {
         viewsCountLabel.text    = "\((post.views?.count ?? 0).shortRepresentation)"
         dateLabel.text          = dateFormatter.string(from: Date(timeIntervalSince1970: post.date))
         sourceNameLabel.text    = author.name
+        
+        if let postPhoto = post.attachments?.first?.photo {
+            imageLoader.downloadImage(from: postPhoto.srcBIG) { image in
+                DispatchQueue.main.async {
+                    self.postPhotoHeightConstraint.constant = CGFloat(postPhoto.adjustedHeight)
+                    self.layoutIfNeeded()
+                    self.postPhotoImageView.image = image
+                }
+            }
+        }
+        
+        imageLoader.downloadImage(from: author.photo) { image in
+            DispatchQueue.main.async {
+                self.authorPhotoImageView.image = image
+            }
+        }
     }
     
 }

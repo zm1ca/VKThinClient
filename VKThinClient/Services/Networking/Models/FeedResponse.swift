@@ -5,7 +5,7 @@
 //  Created by Źmicier Fiedčanka on 29.06.21.
 //
 
-import Foundation
+import UIKit
 
 protocol VKResponse {}
 
@@ -61,6 +61,11 @@ struct Photo: Decodable {
         } else {
             return PhotoSize(type: "wrong image", url: "wrong image", width: 0, height: 0)
         }
+    }
+    
+    var adjustedHeight: Int {
+        let compensation = Double(width) / (Double(UIScreen.main.bounds.size.width) - 80)
+        return Int(Double(height) / compensation)
     }
 }
 
