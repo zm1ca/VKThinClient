@@ -11,13 +11,16 @@ class ProfileVC: UIViewController {
     
     let dataFetcher = DataFetchingService()
     let cells = ["Друзья", "Группы", "Музыка", "Сообщения"]
+    var avatarLink: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataFetcher.getProfileInfo{ profileInfo in
-            guard let profileInfo = profileInfo else { print("Failed to get profile info"); return }
-            print(profileInfo)
-        }
+        dataFetcher.getUserAvatar { self.avatarLink = $0?.photo100!}
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.visibleViewController?.title = "Profile"
     }
 }
 

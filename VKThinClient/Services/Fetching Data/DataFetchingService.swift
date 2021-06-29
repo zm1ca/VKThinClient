@@ -10,7 +10,7 @@ import Moya
 
 class DataFetchingService {
     
-    let feedProvider = MoyaProvider<NetworkService>()
+    let feedProvider = MoyaProvider<VkAPIService>()
     
     func getPosts(completion: @escaping (FeedResponse?) -> Void) {
         feedProvider.request(.getPosts) { result in
@@ -29,14 +29,30 @@ class DataFetchingService {
     
     ///TODO: fix code duplication by adding protocol WrappedResponse with var response and associatedType
     ///Consider creating two data Fetchers: for feed and profile, united by protocol DataFetcher
-    func getProfileInfo(completion: @escaping (ProfileInfo?) -> Void) {
+    func getProfileInfo(completion: @escaping (ProfileResponse?) -> Void) {
         feedProvider.request(.getUserInfo) { result in
             switch result {
             case .success(let response):
                 let response = self.decodeJSON(
                     type: ProfileInfoWrapped.self,
-                    from: response.data)
+                    from: response.data
+                )
                 completion(response?.response)
+            case .failure(_):
+                completion(nil)
+            }
+        }
+    }
+    
+    func getUserAvatar(completion: @escaping (UserResponse?) -> Void) {
+        feedProvider.request(.getUserAvatar) { result in
+            switch result {
+            case .success(let response):
+                let response = self.decodeJSON(
+                    type: UserResponseWrapped.self,
+                    from: response.data
+                )
+                completion(response?.response.first)
             case .failure(_):
                 completion(nil)
             }

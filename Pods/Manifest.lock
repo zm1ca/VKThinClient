@@ -5,26 +5,36 @@ PODS:
   - Moya/Core (13.0.1):
     - Alamofire (~> 4.1)
     - Result (~> 4.1)
+  - Realm (10.8.1):
+    - Realm/Headers (= 10.8.1)
+  - Realm/Headers (10.8.1)
+  - RealmSwift (10.8.1):
+    - Realm (= 10.8.1)
   - Result (4.1.0)
   - VK-ios-sdk (1.6.2)
 
 DEPENDENCIES:
   - Moya
+  - RealmSwift
   - VK-ios-sdk
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - Moya
+    - Realm
+    - RealmSwift
     - Result
     - VK-ios-sdk
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
+  Realm: a2db54d9dcceddeba936b429f5b3d6610a109686
+  RealmSwift: 2a3c75ecbf5a3b04080ff5f6f0554cf6337b4764
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   VK-ios-sdk: 5bcf00a2014a7323f98db9328b603d4f96635caa
 
-PODFILE CHECKSUM: e1d1527736c9952f486dd04f3f521ea06eac8c67
+PODFILE CHECKSUM: adc10813d45c7c5e81ab623f02fd6b35c2250b9a
 
 COCOAPODS: 1.10.1

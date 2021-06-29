@@ -8,33 +8,35 @@
 import Foundation
 import Moya
 
-enum NetworkService {
+enum VkAPIService {
     case getPosts
     case getUserInfo
+    case getUserAvatar
     
     private var authService: AuthService {
         SceneDelegate.shared().authService
     }
     
-    private var params: [String: String] {
+    private var params: [String: Any] {
         ["access_token": authService.token!, "v": "5.92"]
     }
     
-    private func params(appending newParams: [String: String]) -> [String: String] {
+    private func params(appending newParams: [String: Any]) -> [String: Any] {
         var params = params
         newParams.forEach { params[$0] = $1 }
         return params
     }
 }
 
-extension NetworkService: TargetType {
+extension VkAPIService: TargetType {
     
     var baseURL: URL { URL(string: "https://api.vk.com")! }
     
     var path: String {
         switch self {
-        case .getPosts:    return "/method/newsfeed.get"
-        case .getUserInfo: return "/method/account.getProfileInfo"
+        case .getPosts:      return "/method/newsfeed.get"
+        case .getUserInfo:   return "/method/account.getProfileInfo"
+        case .getUserAvatar: return "/method/users.get"
         }
     }
     
@@ -46,12 +48,17 @@ extension NetworkService: TargetType {
         switch self {
         case .getPosts:
             return .requestParameters(
-                parameters: params(appending: ["filters":"post"]),
+                parameters: params(appending: ["filters": "post", "count": 20]),
                 encoding: URLEncoding.queryString
             )
         case .getUserInfo:
             return .requestParameters(
                 parameters: params,
+                encoding: URLEncoding.queryString
+            )
+        case .getUserAvatar:
+            return .requestParameters(
+                parameters: params(appending: ["user_ids": authService.userId!, "fields": "photo_100"]),
                 encoding: URLEncoding.queryString
             )
         }
