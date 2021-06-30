@@ -253,20 +253,76 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#8023818273" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZd-nu-KxH">
-                                        <rect key="frame" x="133.5" y="286.5" width="115" height="22"/>
+                                        <rect key="frame" x="133.5" y="286.5" width="115" height="21.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="CR6-VX-fby">
+                                        <rect key="frame" x="16" y="64.5" width="350" height="332"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="X1u-bH-kuY">
+                                                <rect key="frame" x="0.0" y="0.0" width="350" height="100"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PMs-sZ-dlR" customClass="ProfileDetailsView" customModule="VKThinClient" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="167" height="100"/>
+                                                        <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="100" id="WBg-Td-DQo"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sqf-xu-JBa" customClass="ProfileDetailsView" customModule="VKThinClient" customModuleProvider="target">
+                                                        <rect key="frame" x="183" y="0.0" width="167" height="100"/>
+                                                        <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="RrV-zm-cGj">
+                                                <rect key="frame" x="0.0" y="116" width="350" height="100"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NI2-aR-eiE" customClass="ProfileDetailsView" customModule="VKThinClient" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="167" height="100"/>
+                                                        <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="100" id="3QP-4U-Oc8"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Apz-QQ-wbf" customClass="ProfileDetailsView" customModule="VKThinClient" customModuleProvider="target">
+                                                        <rect key="frame" x="183" y="0.0" width="167" height="100"/>
+                                                        <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="bBn-cg-Yld">
+                                                <rect key="frame" x="0.0" y="232" width="350" height="100"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fUl-j2-7Lx" customClass="ProfileDetailsView" customModule="VKThinClient" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="167" height="100"/>
+                                                        <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="100" id="3Jl-up-Oc0"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rKw-pt-PRO" customClass="ProfileDetailsView" customModule="VKThinClient" customModuleProvider="target">
+                                                        <rect key="frame" x="183" y="0.0" width="167" height="100"/>
+                                                        <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <gestureRecognizers/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="CR6-VX-fby" secondAttribute="trailing" constant="16" id="6Y6-pA-81Q"/>
                                     <constraint firstItem="Xve-Ig-Vtq" firstAttribute="top" secondItem="PoX-Xy-Ghg" secondAttribute="bottom" constant="20" id="Bb3-l9-KHf"/>
                                     <constraint firstItem="PoX-Xy-Ghg" firstAttribute="top" secondItem="Lkn-fp-1yv" secondAttribute="top" constant="32" id="GJ8-4w-W6f"/>
                                     <constraint firstItem="SZd-nu-KxH" firstAttribute="top" secondItem="Xve-Ig-Vtq" secondAttribute="bottom" constant="8" id="Lcs-0p-awH"/>
                                     <constraint firstItem="PoX-Xy-Ghg" firstAttribute="centerX" secondItem="Lkn-fp-1yv" secondAttribute="centerX" id="TnX-AM-dbI"/>
                                     <constraint firstItem="SZd-nu-KxH" firstAttribute="centerX" secondItem="Lkn-fp-1yv" secondAttribute="centerX" id="Z2V-nw-zhA"/>
+                                    <constraint firstItem="CR6-VX-fby" firstAttribute="leading" secondItem="Lkn-fp-1yv" secondAttribute="leading" constant="16" id="en8-83-AJM"/>
+                                    <constraint firstItem="CR6-VX-fby" firstAttribute="centerY" secondItem="Lkn-fp-1yv" secondAttribute="centerY" constant="-100" id="hAn-X0-huz"/>
                                     <constraint firstItem="Xve-Ig-Vtq" firstAttribute="centerX" secondItem="Lkn-fp-1yv" secondAttribute="centerX" id="nDG-6r-dWu"/>
                                 </constraints>
                                 <connections>
@@ -291,6 +347,12 @@
                         <outlet property="activityIndicator" destination="Z7V-bm-ScK" id="nRx-nI-5Pe"/>
                         <outlet property="avatarImageView" destination="PoX-Xy-Ghg" id="bMO-Je-yT7"/>
                         <outlet property="contentView" destination="Lkn-fp-1yv" id="t4q-15-FT9"/>
+                        <outlet property="detailsBlock1" destination="PMs-sZ-dlR" id="6xk-3c-Pfr"/>
+                        <outlet property="detailsBlock2" destination="Sqf-xu-JBa" id="Vcy-7C-gt6"/>
+                        <outlet property="detailsBlock3" destination="NI2-aR-eiE" id="wok-sk-du6"/>
+                        <outlet property="detailsBlock4" destination="Apz-QQ-wbf" id="fwD-RP-0Tu"/>
+                        <outlet property="detailsBlock5" destination="fUl-j2-7Lx" id="2Qp-8V-2Xb"/>
+                        <outlet property="detailsBlock6" destination="rKw-pt-PRO" id="e4a-jX-MuI"/>
                         <outlet property="idLabel" destination="SZd-nu-KxH" id="0qY-Qo-UUj"/>
                         <outlet property="nameLabel" destination="Xve-Ig-Vtq" id="LT2-uk-75c"/>
                     </connections>
@@ -361,6 +423,9 @@
         <image name="share" width="24" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

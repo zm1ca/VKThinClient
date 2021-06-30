@@ -17,6 +17,13 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var nameLabel:       UILabel!
     @IBOutlet weak var idLabel:         UILabel!
     
+    @IBOutlet weak var detailsBlock1: ProfileDetailsView!
+    @IBOutlet weak var detailsBlock2: ProfileDetailsView!
+    @IBOutlet weak var detailsBlock3: ProfileDetailsView!
+    @IBOutlet weak var detailsBlock4: ProfileDetailsView!
+    @IBOutlet weak var detailsBlock5: ProfileDetailsView!
+    @IBOutlet weak var detailsBlock6: ProfileDetailsView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         contentView.subviews.forEach { $0.alpha = 0 }
@@ -33,6 +40,7 @@ class ProfileVC: UIViewController {
         contentView.layer.cornerRadius = 10
         setAvatar()
         setProfileInfo()
+        setDetailBlocks()
     }
     
     private func setAvatar() {
@@ -65,6 +73,15 @@ class ProfileVC: UIViewController {
             self.contentView.subviews.forEach { $0.alpha = 1.0 }
         }
         self.activityIndicator.stopAnimating()
+    }
+    
+    private func setDetailBlocks() {
+        detailsBlock1.set(title: "Friends", value: 13)
+        detailsBlock2.set(title: "Music", value: 12)
+        detailsBlock3.set(title: "Groups", value: 54)
+        detailsBlock4.set(title: "Videos", value: 982)
+        detailsBlock5.set(title: "Comments", value: 1)
+        detailsBlock6.set(title: "Likes", value: 0)
     }
     
     @IBAction func contentViewTapped(_ sender: Any) {
