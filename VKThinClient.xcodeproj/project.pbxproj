@@ -148,10 +148,10 @@
 		400E1FF82689D06B0010BCB9 /* Tabbar */ = {
 			isa = PBXGroup;
 			children = (
-				405A704A2689FE9400AB8650 /* Feed */,
-				405A704B2689FE9900AB8650 /* Profile */,
 				405A70462689FAEE00AB8650 /* Tabbar.storyboard */,
 				405A70482689FAFB00AB8650 /* TabbarVC.swift */,
+				405A704A2689FE9400AB8650 /* Feed */,
+				405A704B2689FE9900AB8650 /* Profile */,
 			);
 			path = Tabbar;
 			sourceTree = "<group>";

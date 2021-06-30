@@ -76,7 +76,7 @@ extension FeedVC: UITableViewDelegate, UITableViewDataSource {
         guard let text = post.text else { return 0 }
         let labelFont = UIFont.systemFont(ofSize: 17, weight: .regular)
         let postPhotoHeight = CGFloat(post.attachments?.first?.photo?.adjustedHeight ?? 0)
-        return text.height(font: labelFont) + postPhotoHeight + 120
+        return text.height(font: labelFont) + postPhotoHeight + 125
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

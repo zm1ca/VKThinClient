@@ -42,6 +42,8 @@ class FeedCell: UITableViewCell {
         container.backgroundColor = .white
         postTextLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
         postTextLabel.sizeToFit()
+        sourceNameLabel.adjustsFontSizeToFitWidth = true
+        sourceNameLabel.minimumScaleFactor = 0.5
         authorPhotoImageView.layer.cornerRadius = authorPhotoImageView.layer.bounds.width / 2
     }
 
@@ -65,6 +67,11 @@ class FeedCell: UITableViewCell {
                     self.layoutIfNeeded()
                     self.postPhotoImageView.image = image
                 }
+            }
+        } else {
+            DispatchQueue.main.async {
+                self.postPhotoHeightConstraint.constant = 0
+                self.layoutIfNeeded()
             }
         }
         
