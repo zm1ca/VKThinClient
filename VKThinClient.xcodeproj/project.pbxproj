@@ -207,11 +207,19 @@
 		405A704B2689FE9900AB8650 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				4085005E268CCDD300A92DD9 /* Custom Views */,
 				405A704E2689FEBB00AB8650 /* ProfileVC.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		4085005E268CCDD300A92DD9 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
 				404AB8E5268BDDE300EFF793 /* AvatarImageView.swift */,
 				404AB8E7268C3A9900EFF793 /* ProfileDetailsView.swift */,
 			);
-			path = Profile;
+			path = "Custom Views";
 			sourceTree = "<group>";
 		};
 		40F3B114268BB75900853266 /* VK API Service */ = {

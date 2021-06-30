@@ -11,6 +11,6 @@ struct AvatarResponseWrapped: Decodable {
     let response: [AvatarResponse]
 }
 
-struct AvatarResponse: Decodable, VKResponse {
+struct AvatarResponse: Decodable {
     let photo100: String?
 }

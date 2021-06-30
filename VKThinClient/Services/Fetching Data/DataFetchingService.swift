@@ -30,7 +30,7 @@ class DataFetchingService {
     ///TODO: fix code duplication by adding protocol WrappedResponse with var response and associatedType
     ///Consider creating two data Fetchers: for feed and profile, united by protocol DataFetcher
     func getProfileInfo(completion: @escaping (ProfileResponse?) -> Void) {
-        feedProvider.request(.getUserInfo) { result in
+        feedProvider.request(.getProfileInfo) { result in
             switch result {
             case .success(let response):
                 let response = self.decodeJSON(

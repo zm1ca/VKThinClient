@@ -10,7 +10,7 @@ import Moya
 
 enum VkAPIService {
     case getPosts
-    case getUserInfo
+    case getProfileInfo
     case getUserAvatar
     
     private var authService: AuthService {
@@ -34,9 +34,9 @@ extension VkAPIService: TargetType {
     
     var path: String {
         switch self {
-        case .getPosts:      return "/method/newsfeed.get"
-        case .getUserInfo:   return "/method/account.getProfileInfo"
-        case .getUserAvatar: return "/method/users.get"
+        case .getPosts:         return "/method/newsfeed.get"
+        case .getProfileInfo:   return "/method/account.getProfileInfo"
+        case .getUserAvatar:    return "/method/users.get"
         }
     }
     
@@ -51,7 +51,7 @@ extension VkAPIService: TargetType {
                 parameters: params(appending: ["filters": "post", "count": 20]),
                 encoding: URLEncoding.queryString
             )
-        case .getUserInfo:
+        case .getProfileInfo:
             return .requestParameters(
                 parameters: params,
                 encoding: URLEncoding.queryString
