@@ -23,7 +23,7 @@
                                 <rect key="frame" x="16" y="76" width="382" height="754"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PoX-Xy-Ghg" customClass="AvatarImageView" customModule="VKThinClient" customModuleProvider="target">
-                                        <rect key="frame" x="75" y="105" width="232" height="232"/>
+                                        <rect key="frame" x="91" y="137" width="200" height="200"/>
                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" priority="998" constant="200" id="CSz-1r-C2n"/>
@@ -128,6 +128,11 @@
                                     <constraint firstItem="CR6-VX-fby" firstAttribute="centerY" secondItem="Lkn-fp-1yv" secondAttribute="centerY" priority="500" id="lIj-Le-kQv"/>
                                     <constraint firstItem="Xve-Ig-Vtq" firstAttribute="centerX" secondItem="Lkn-fp-1yv" secondAttribute="centerX" id="nDG-6r-dWu"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Xu4-lv-0By"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="GNy-xS-8BH" appends="YES" id="SGq-a7-Zki"/>
                                 </connections>

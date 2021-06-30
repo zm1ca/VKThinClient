@@ -50,7 +50,7 @@ class ProfileVC: UIViewController {
     //MARK: Configuration
     private func setAvatar() {
         dataFetcher.getUserAvatar { result in
-            guard let result = result, let avatarURL = result.photo100 else { return }
+            guard let result = result, let avatarURL = result.photo400Orig else { return }
             ImageLoader.shared.downloadImage(from: avatarURL) { image in
                 guard let image = image else { return }
                 DispatchQueue.main.async { [self] in
