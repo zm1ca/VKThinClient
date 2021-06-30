@@ -40,7 +40,7 @@ class ProfileVC: UIViewController {
         contentView.layer.cornerRadius = 10
         setAvatar()
         setProfileInfo()
-        setDetailBlocks()
+        setDetailsBlocks()
     }
     
     private func setAvatar() {
@@ -57,13 +57,39 @@ class ProfileVC: UIViewController {
     }
     
     private func setProfileInfo() {
-        dataFetcher.getProfileInfo { userResponse in
-            guard let userResponse = userResponse else { return }
+        dataFetcher.getProfileInfo { profileResponse in
+            guard let profileResponse = profileResponse else { return }
             DispatchQueue.main.async { [self] in
-                self.nameLabel.text = userResponse.name
-                self.idLabel.text   = "#\(userResponse.id)"
+                self.nameLabel.text = profileResponse.name
+                self.idLabel.text   = "#\(profileResponse.id)"
+                detailsBlock1.set(title: "Sex",      value: sex(by: profileResponse.sex))
+                detailsBlock2.set(title: "Relation", value: relation(by: profileResponse.relation))
                 presentUIIfNeeded()
             }
+        }
+    }
+    
+    private func sex(by id: Int) -> String {
+        switch id {
+        case 0: return  "Not set"
+        case 1: return  "Female"
+        case 2: return  "Male"
+        default: return "Other"
+        }
+    }
+    
+    private func relation(by id: Int) -> String {
+        switch id {
+        case 0: return "Not Set"
+        case 1: return "Single"
+        case 2: return "Relationship"
+        case 3: return "Engaged"
+        case 4: return "Married"
+        case 5: return "Complicated"
+        case 6: return "Searchijg"
+        case 7: return "In Love"
+        case 8: return "Civil"
+        default: return "Other"
         }
     }
     
@@ -75,13 +101,11 @@ class ProfileVC: UIViewController {
         self.activityIndicator.stopAnimating()
     }
     
-    private func setDetailBlocks() {
-        detailsBlock1.set(title: "Friends", value: 13)
-        detailsBlock2.set(title: "Music", value: 12)
-        detailsBlock3.set(title: "Groups", value: 54)
-        detailsBlock4.set(title: "Videos", value: 982)
-        detailsBlock5.set(title: "Comments", value: 1)
-        detailsBlock6.set(title: "Likes", value: 0)
+    private func setDetailsBlocks() {
+        detailsBlock3.set(title: "Friends",       value: "999")
+        detailsBlock4.set(title: "Apps",          value: "999")
+        detailsBlock5.set(title: "Followers",     value: "999")
+        detailsBlock6.set(title: "Subscriptions", value: "Relationship")
     }
     
     @IBAction func contentViewTapped(_ sender: Any) {

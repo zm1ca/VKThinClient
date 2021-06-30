@@ -17,7 +17,12 @@ class AvatarImageView: UIImageView {
     private func configure() {
         contentMode = .scaleAspectFill
         layer.masksToBounds = false
-        layer.cornerRadius = frame.height / 2
+        layer.backgroundColor = UIColor.systemPink.cgColor
+        print(frame, bounds)
+        if frame.height == frame.width {
+            layer.cornerRadius = frame.width / 2
+            print("round")
+        }
         clipsToBounds      = true
         layer.borderColor  = UIColor.gray.cgColor
         layer.borderWidth  = 3

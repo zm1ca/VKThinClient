@@ -40,13 +40,13 @@ class FeedVC: UIViewController {
                 return
             }
             
-            self.activityIndicator.stopAnimating()
             self.posts    = feed.items
             self.groups   = feed.groups
             self.profiles = feed.profiles
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.activityIndicator.stopAnimating()
             }
         }
     }
