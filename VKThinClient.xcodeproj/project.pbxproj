@@ -31,6 +31,7 @@
 		405A70492689FAFB00AB8650 /* TabbarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405A70482689FAFB00AB8650 /* TabbarVC.swift */; };
 		405A704D2689FEAF00AB8650 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405A704C2689FEAF00AB8650 /* FeedVC.swift */; };
 		405A704F2689FEBB00AB8650 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405A704E2689FEBB00AB8650 /* ProfileVC.swift */; };
+		40850060268CD0B800A92DD9 /* FriendsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4085005F268CD0B800A92DD9 /* FriendsResponse.swift */; };
 		40F3B117268BB78800853266 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F3B116268BB78800853266 /* Cache.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		405A70482689FAFB00AB8650 /* TabbarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarVC.swift; sourceTree = "<group>"; };
 		405A704C2689FEAF00AB8650 /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 		405A704E2689FEBB00AB8650 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		4085005F268CD0B800A92DD9 /* FriendsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsResponse.swift; sourceTree = "<group>"; };
 		40F3B116268BB78800853266 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		61DE17E85CB82C9E77D2C012 /* Pods-VKThinClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKThinClient.debug.xcconfig"; path = "Target Support Files/Pods-VKThinClient/Pods-VKThinClient.debug.xcconfig"; sourceTree = "<group>"; };
 		6583A13F80315CE6FF99B050 /* Pods-VKThinClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKThinClient.release.xcconfig"; path = "Target Support Files/Pods-VKThinClient/Pods-VKThinClient.release.xcconfig"; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				403A4841268B108D00F41766 /* FeedResponse.swift */,
 				403A4843268B1A1B00F41766 /* ProfileResponse.swift */,
 				402BE6DC268B67C500E24DBF /* AvatarResponse.swift */,
+				4085005F268CD0B800A92DD9 /* FriendsResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				40F3B117268BB78800853266 /* Cache.swift in Sources */,
 				402BE6D7268B57F500E24DBF /* String+Ext.swift in Sources */,
 				400E1FE42689CFD60010BCB9 /* SceneDelegate.swift in Sources */,
+				40850060268CD0B800A92DD9 /* FriendsResponse.swift in Sources */,
 				404AB8E6268BDDE300EFF793 /* AvatarImageView.swift in Sources */,
 				403A4846268B1F1500F41766 /* DataFetchingService.swift in Sources */,
 				403A4842268B108D00F41766 /* FeedResponse.swift in Sources */,

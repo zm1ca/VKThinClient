@@ -59,6 +59,21 @@ class DataFetchingService {
         }
     }
     
+    func getFriendsCount(completion: @escaping (Int?) -> Void) {
+        feedProvider.request(.getFriends) { result in
+            switch result {
+            case .success(let response):
+                let response = self.decodeJSON(
+                    type: FriendResponseWrapped.self,
+                    from: response.data
+                )
+                completion(response?.response.count)
+            case .failure(_):
+                completion(nil)
+            }
+        }
+    }
+    
     private func decodeJSON<T: Decodable>(type: T.Type, from data: Data?) -> T? {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase

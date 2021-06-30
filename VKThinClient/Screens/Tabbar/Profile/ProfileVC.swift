@@ -9,6 +9,8 @@ import UIKit
 
 class ProfileVC: UIViewController {
     
+    ///FIX: massive code duplication
+    
     let dataFetcher = DataFetchingService()
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -66,7 +68,15 @@ class ProfileVC: UIViewController {
                 detailsBlock1.set(title: "Sex",      value: sex(by: profileResponse.sex))
                 detailsBlock2.set(title: "Relation", value: relation(by: profileResponse.relation))
                 detailsBlock3.set(title: "Birthday", value: profileResponse.bdate)
-                detailsBlock4.set(title: "City",     value: city(from: profileResponse.homeTown) )
+                detailsBlock4.set(title: "City",     value: city(from: profileResponse.homeTown))
+                presentUIIfNeeded()
+            }
+        }
+        
+        dataFetcher.getFriendsCount { friendsCount in
+            guard let friendsCount = friendsCount else { return }
+            DispatchQueue.main.async { [self] in
+                detailsBlock5.set(title: "Friends", value: "\(friendsCount)")
                 presentUIIfNeeded()
             }
         }
@@ -81,7 +91,6 @@ class ProfileVC: UIViewController {
     }
     
     private func setDetailsBlocks() {
-        detailsBlock5.set(title: "Friends",       value: "999")
         detailsBlock6.set(title: "Subscriptions", value: "Relationship")
     }
     

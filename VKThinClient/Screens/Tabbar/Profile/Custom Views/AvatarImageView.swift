@@ -17,7 +17,6 @@ class AvatarImageView: UIImageView {
     private func configure() {
         contentMode = .scaleAspectFill
         layer.masksToBounds = false
-        layer.backgroundColor = UIColor.systemPink.cgColor
         layer.cornerRadius = frame.width / 2
         clipsToBounds      = true
         layer.borderColor  = UIColor.gray.cgColor

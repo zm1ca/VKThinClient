@@ -9,8 +9,6 @@ import UIKit
 
 class ProfileDetailsView: UIView {
     
-    ///FIX: massive code duplication. create custom label
-    
     let titleLabel = UILabel()
     let valueLabel = UILabel()
     

@@ -18,7 +18,7 @@ struct FeedResponse: Decodable {
     var groups: [Group]
 }
 
-struct Post:     Decodable {
+struct Post: Decodable {
     let sourceId:    Int
     let text:        String?
     let date:        Double
