@@ -29,20 +29,24 @@ class FeedVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.visibleViewController?.title = "Feed"
+        loadPostsAndUpdateUI()
+    }
+    
+    private func loadPostsAndUpdateUI() {
         activityIndicator.startAnimating()
         dataFetcher.getPosts { feedResponse in
             guard let feed = feedResponse else {
-                self.presentAlertOnMainThread(withTitle: "Networking Error", andMessage: "Unable to load feed")
+                self.presentAlertOnMainThread(withTitle: "Networking Error", andMessage: "Unable to load feed.\nPlease check your internet connection")
                 return
             }
             
-            self.activityIndicator.stopAnimating()
             self.posts    = feed.items
             self.groups   = feed.groups
             self.profiles = feed.profiles
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.activityIndicator.stopAnimating()
             }
         }
     }

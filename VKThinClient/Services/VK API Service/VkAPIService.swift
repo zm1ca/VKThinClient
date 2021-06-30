@@ -10,8 +10,10 @@ import Moya
 
 enum VkAPIService {
     case getPosts
-    case getUserInfo
+    case getProfileInfo
     case getUserAvatar
+    case getFriends
+    case getSubscriptions
     
     private var authService: AuthService {
         SceneDelegate.shared().authService
@@ -34,9 +36,11 @@ extension VkAPIService: TargetType {
     
     var path: String {
         switch self {
-        case .getPosts:      return "/method/newsfeed.get"
-        case .getUserInfo:   return "/method/account.getProfileInfo"
-        case .getUserAvatar: return "/method/users.get"
+        case .getPosts:         return "/method/newsfeed.get"
+        case .getProfileInfo:   return "/method/account.getProfileInfo"
+        case .getUserAvatar:    return "/method/users.get"
+        case .getFriends:       return "/method/friends.get"
+        case .getSubscriptions: return "/method/users.getSubscriptions"
         }
     }
     
@@ -51,7 +55,7 @@ extension VkAPIService: TargetType {
                 parameters: params(appending: ["filters": "post", "count": 20]),
                 encoding: URLEncoding.queryString
             )
-        case .getUserInfo:
+        case .getProfileInfo:
             return .requestParameters(
                 parameters: params,
                 encoding: URLEncoding.queryString
@@ -59,6 +63,16 @@ extension VkAPIService: TargetType {
         case .getUserAvatar:
             return .requestParameters(
                 parameters: params(appending: ["user_ids": authService.userId!, "fields": "photo_100"]),
+                encoding: URLEncoding.queryString
+            )
+        case .getFriends:
+            return .requestParameters(
+                parameters: params,
+                encoding: URLEncoding.queryString
+            )
+        case .getSubscriptions:
+            return .requestParameters(
+                parameters: params,
                 encoding: URLEncoding.queryString
             )
         }

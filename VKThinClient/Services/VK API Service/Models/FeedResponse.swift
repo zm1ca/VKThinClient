@@ -7,19 +7,18 @@
 
 import UIKit
 
-protocol VKResponse {}
 
 struct FeedResponseWrapped: Decodable {
     let response: FeedResponse
 }
 
-struct FeedResponse: Decodable, VKResponse {
+struct FeedResponse: Decodable {
     let items: [Post]
     var profiles: [Profile]
     var groups: [Group]
 }
 
-struct Post:     Decodable {
+struct Post: Decodable {
     let sourceId:    Int
     let text:        String?
     let date:        Double

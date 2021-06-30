@@ -11,11 +11,14 @@ struct ProfileInfoWrapped: Decodable {
     let response: ProfileResponse
 }
 
-struct ProfileResponse: Decodable, VKResponse {
+struct ProfileResponse: Decodable {
     let firstName: String
     let lastName:  String
     let id:        Int
     let sex:       Int
-    let phone:     String
     let relation:  Int
+    let bdate:     String
+    let homeTown:  String
+    
+    var name: String { firstName + " " + lastName }
 }

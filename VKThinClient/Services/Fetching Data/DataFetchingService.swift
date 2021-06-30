@@ -30,7 +30,7 @@ class DataFetchingService {
     ///TODO: fix code duplication by adding protocol WrappedResponse with var response and associatedType
     ///Consider creating two data Fetchers: for feed and profile, united by protocol DataFetcher
     func getProfileInfo(completion: @escaping (ProfileResponse?) -> Void) {
-        feedProvider.request(.getUserInfo) { result in
+        feedProvider.request(.getProfileInfo) { result in
             switch result {
             case .success(let response):
                 let response = self.decodeJSON(
@@ -44,15 +44,45 @@ class DataFetchingService {
         }
     }
     
-    func getUserAvatar(completion: @escaping (UserResponse?) -> Void) {
+    func getUserAvatar(completion: @escaping (AvatarResponse?) -> Void) {
         feedProvider.request(.getUserAvatar) { result in
             switch result {
             case .success(let response):
                 let response = self.decodeJSON(
-                    type: UserResponseWrapped.self,
+                    type: AvatarResponseWrapped.self,
                     from: response.data
                 )
                 completion(response?.response.first)
+            case .failure(_):
+                completion(nil)
+            }
+        }
+    }
+    
+    func getFriendsCount(completion: @escaping (Int?) -> Void) {
+        feedProvider.request(.getFriends) { result in
+            switch result {
+            case .success(let response):
+                let response = self.decodeJSON(
+                    type: FriendResponseWrapped.self,
+                    from: response.data
+                )
+                completion(response?.response.count)
+            case .failure(_):
+                completion(nil)
+            }
+        }
+    }
+    
+    func getSubscriptionsCount(completion: @escaping (Int?) -> Void) {
+        feedProvider.request(.getSubscriptions) { result in
+            switch result {
+            case .success(let response):
+                let response = self.decodeJSON(
+                    type: SubscriptionsResponseWrapped.self,
+                    from: response.data
+                )
+                completion(response?.response.count)
             case .failure(_):
                 completion(nil)
             }

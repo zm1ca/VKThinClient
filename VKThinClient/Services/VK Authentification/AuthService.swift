@@ -11,6 +11,7 @@ protocol AuthServiceDelegate: AnyObject {
     func authServiceShouldShow(viewController: UIViewController)
     func authServiceSignIn()
     func authServiceSignInDidFail()
+    func authServiceLogout()
 }
 
 class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
@@ -29,7 +30,7 @@ class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
     }
     
     func wakeUpSession() {
-        let scope = ["offline"]
+        let scope = ["offline", "wall", "friends", "status"]
         VKSdk.wakeUpSession(scope) { [delegate] state, error in
             switch state {
             case .initialized:
@@ -42,22 +43,23 @@ class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
         }
     }
     
+    func vkLogout() {
+        VKSdk.forceLogout()
+        delegate?.authServiceLogout()
+    }
+    
     func vkSdkAccessAuthorizationFinished(with result: VKAuthorizationResult!) {
         guard result.token != nil else { return }
         delegate?.authServiceSignIn()
     }
     
     func vkSdkUserAuthorizationFailed() {
-        print(#function)
         delegate?.authServiceSignInDidFail()
     }
     
     func vkSdkShouldPresent(_ controller: UIViewController!) {
-        print(#function)
         delegate?.authServiceShouldShow(viewController: controller)
     }
     
-    func vkSdkNeedCaptchaEnter(_ captchaError: VKError!) {
-        print(#function)
-    }
+    func vkSdkNeedCaptchaEnter(_ captchaError: VKError!) { }
 }
