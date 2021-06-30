@@ -42,7 +42,6 @@ class ProfileVC: UIViewController {
         contentView.layer.cornerRadius = 10
         setAvatar()
         setProfileInfo()
-        setDetailsBlocks()
     }
     
     //MARK: Configuration
@@ -80,6 +79,14 @@ class ProfileVC: UIViewController {
                 presentUIIfNeeded()
             }
         }
+        
+        dataFetcher.getFriendsCount { subscriptionsCount in
+            guard let subscriptionsCount = subscriptionsCount else { return }
+            DispatchQueue.main.async { [self] in
+                detailsBlock6.set(title: "Subscriptions", value: "\(subscriptionsCount)")
+                presentUIIfNeeded()
+            }
+        }
     }
     
     private func presentUIIfNeeded() {
@@ -88,10 +95,6 @@ class ProfileVC: UIViewController {
             self.contentView.subviews.forEach { $0.alpha = 1.0 }
         }
         self.activityIndicator.stopAnimating()
-    }
-    
-    private func setDetailsBlocks() {
-        detailsBlock6.set(title: "Subscriptions", value: "Relationship")
     }
     
     //MARK: Handle tap

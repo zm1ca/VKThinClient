@@ -74,6 +74,21 @@ class DataFetchingService {
         }
     }
     
+    func getSubscriptionsCount(completion: @escaping (Int?) -> Void) {
+        feedProvider.request(.getSubscriptions) { result in
+            switch result {
+            case .success(let response):
+                let response = self.decodeJSON(
+                    type: SubscriptionsResponseWrapped.self,
+                    from: response.data
+                )
+                completion(response?.response.count)
+            case .failure(_):
+                completion(nil)
+            }
+        }
+    }
+    
     private func decodeJSON<T: Decodable>(type: T.Type, from data: Data?) -> T? {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase

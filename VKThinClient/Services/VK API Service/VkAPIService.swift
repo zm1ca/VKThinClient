@@ -13,6 +13,7 @@ enum VkAPIService {
     case getProfileInfo
     case getUserAvatar
     case getFriends
+    case getSubscriptions
     
     private var authService: AuthService {
         SceneDelegate.shared().authService
@@ -39,6 +40,7 @@ extension VkAPIService: TargetType {
         case .getProfileInfo:   return "/method/account.getProfileInfo"
         case .getUserAvatar:    return "/method/users.get"
         case .getFriends:       return "/method/friends.get"
+        case .getSubscriptions: return "/method/users.getSubscriptions"
         }
     }
     
@@ -64,6 +66,11 @@ extension VkAPIService: TargetType {
                 encoding: URLEncoding.queryString
             )
         case .getFriends:
+            return .requestParameters(
+                parameters: params,
+                encoding: URLEncoding.queryString
+            )
+        case .getSubscriptions:
             return .requestParameters(
                 parameters: params,
                 encoding: URLEncoding.queryString
