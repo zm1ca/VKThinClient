@@ -241,6 +241,7 @@
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PoX-Xy-Ghg" customClass="AvatarImageView" customModule="VKThinClient" customModuleProvider="target">
                                         <rect key="frame" x="75" y="59.666666666666686" width="246" height="246"/>
+                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" priority="998" constant="200" id="CSz-1r-C2n"/>
                                             <constraint firstAttribute="width" secondItem="PoX-Xy-Ghg" secondAttribute="height" multiplier="1:1" id="cB0-Qh-TTt"/>

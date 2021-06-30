@@ -35,9 +35,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="nxu-0z-gFB"/>
-                    <connections>
-                        <outlet property="vkLogoImageView" destination="vPw-XM-ueW" id="AOk-g9-blj"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
