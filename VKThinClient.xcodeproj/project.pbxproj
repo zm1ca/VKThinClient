@@ -99,10 +99,10 @@
 		400E1FE02689CFD60010BCB9 /* VKThinClient */ = {
 			isa = PBXGroup;
 			children = (
+				400E1FF62689D0590010BCB9 /* Screens */,
+				400E202A2689F34D0010BCB9 /* Services */,
 				402BE6D5268B57EB00E24DBF /* Extensions */,
 				400E1FF52689D01B0010BCB9 /* Application */,
-				400E202A2689F34D0010BCB9 /* Services */,
-				400E1FF62689D0590010BCB9 /* Screens */,
 				400E1FEA2689CFD80010BCB9 /* Assets.xcassets */,
 				400E1FEC2689CFD80010BCB9 /* LaunchScreen.storyboard */,
 				400E1FEF2689CFD80010BCB9 /* Info.plist */,
@@ -152,7 +152,8 @@
 			isa = PBXGroup;
 			children = (
 				403A4847268B1F2000F41766 /* VK Authentification */,
-				403A4848268B1F3000F41766 /* Networking */,
+				40F3B114268BB75900853266 /* VK API Service */,
+				40F3B115268BB76900853266 /* Image Loader */,
 				403A4849268B1F4E00F41766 /* Fetching Data */,
 			);
 			path = Services;
@@ -184,15 +185,6 @@
 				400E202B2689F35E0010BCB9 /* AuthService.swift */,
 			);
 			path = "VK Authentification";
-			sourceTree = "<group>";
-		};
-		403A4848268B1F3000F41766 /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-				40F3B115268BB76900853266 /* Image Loader */,
-				40F3B114268BB75900853266 /* VK API Service */,
-			);
-			path = Networking;
 			sourceTree = "<group>";
 		};
 		403A4849268B1F4E00F41766 /* Fetching Data */ = {

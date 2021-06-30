@@ -92,7 +92,8 @@ class ProfileVC: UIViewController {
             view.backgroundColor = .white
         }
         
-        UIView.transition(with: contentView, duration: 0.75, options: [.transitionFlipFromLeft]) { [weak self] in
+        let fliptype: UIView.AnimationOptions = avatarImageView.isHidden ? .transitionFlipFromRight : .transitionFlipFromLeft
+        UIView.transition(with: contentView, duration: 0.75, options: [fliptype]) { [weak self] in
             guard let self = self else { return }
             self.contentView.subviews.forEach { $0.isHidden.toggle() }
         }

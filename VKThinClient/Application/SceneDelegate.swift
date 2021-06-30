@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         authService = AuthService()
         authService.delegate = self
-        let authVC = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginVC") as? LoginVC
+        let authVC = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
         window?.rootViewController = authVC
         window?.makeKeyAndVisible()
     }
@@ -39,13 +39,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
 extension SceneDelegate: AuthServiceDelegate {
+    func authServiceLogout() {
+        let authVC = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+        window?.rootViewController?.present(authVC, animated: true, completion: nil)
+    }
+    
     func authServiceShouldShow(viewController: UIViewController) {
         window?.rootViewController?.present(viewController, animated: true, completion: nil)
     }
     
     func authServiceSignIn() {
-        let tabbarVC = UIStoryboard(name: "Tabbar", bundle: nil).instantiateViewController(identifier: "navigationVC")
-        window?.rootViewController = tabbarVC
+        let navigationVC = UIStoryboard(name: "Tabbar", bundle: nil).instantiateViewController(identifier: "navigationVC")
+        window?.rootViewController = navigationVC
     }
     
     func authServiceSignInDidFail() {
