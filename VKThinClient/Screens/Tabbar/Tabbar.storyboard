@@ -260,6 +260,7 @@
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="Xve-Ig-Vtq" firstAttribute="top" secondItem="PoX-Xy-Ghg" secondAttribute="bottom" constant="20" id="Bb3-l9-KHf"/>
                                     <constraint firstItem="PoX-Xy-Ghg" firstAttribute="top" secondItem="Lkn-fp-1yv" secondAttribute="top" constant="32" id="GJ8-4w-W6f"/>
@@ -268,10 +269,14 @@
                                     <constraint firstItem="SZd-nu-KxH" firstAttribute="centerX" secondItem="Lkn-fp-1yv" secondAttribute="centerX" id="Z2V-nw-zhA"/>
                                     <constraint firstItem="Xve-Ig-Vtq" firstAttribute="centerX" secondItem="Lkn-fp-1yv" secondAttribute="centerX" id="nDG-6r-dWu"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="GNy-xS-8BH" appends="YES" id="SGq-a7-Zki"/>
+                                </connections>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bxz-8e-E6i"/>
                         <color key="backgroundColor" white="0.94999999999999996" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="bxz-8e-E6i" firstAttribute="bottom" secondItem="Lkn-fp-1yv" secondAttribute="bottom" constant="32" id="IWx-UF-c3p"/>
                             <constraint firstItem="Lkn-fp-1yv" firstAttribute="leading" secondItem="bxz-8e-E6i" secondAttribute="leading" constant="16" id="VHc-DJ-oCU"/>
@@ -291,6 +296,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="88U-qu-JIS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="GNy-xS-8BH">
+                    <connections>
+                        <action selector="contentViewTapped:" destination="EM3-gY-h9r" id="HiA-5c-Rd0"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1537.68115942029" y="805.58035714285711"/>
         </scene>

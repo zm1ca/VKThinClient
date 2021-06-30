@@ -66,4 +66,18 @@ class ProfileVC: UIViewController {
         }
         self.activityIndicator.stopAnimating()
     }
+    
+    @IBAction func contentViewTapped(_ sender: Any) {
+        let view = contentView!
+        if view.backgroundColor == .white {
+            view.backgroundColor = .systemTeal
+        } else {
+            view.backgroundColor = .white
+        }
+        
+        UIView.transition(with: contentView, duration: 0.75, options: [.transitionFlipFromLeft]) { [weak self] in
+            guard let self = self else { return }
+            self.contentView.subviews.forEach { $0.isHidden.toggle() }
+        }
+    }
 }
