@@ -25,37 +25,30 @@ class ProfileDetailsView: UIView {
     }
     
     private func configure() {
-        titleLabel.text = "Group"
-        valueLabel.text = "Value"
+        layer.cornerRadius = 12
+        clipsToBounds      = true
+        
+        for label in [titleLabel, valueLabel] {
+            addSubview(label)
+            label.adjustsFontSizeToFitWidth = true
+            label.textAlignment = .center
+            label.translatesAutoresizingMaskIntoConstraints = false
+            
+            NSLayoutConstraint.activate([
+                label.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: 0),
+                label.leadingAnchor.constraint(greaterThanOrEqualTo: self.leadingAnchor, constant: 8),
+                label.trailingAnchor.constraint(greaterThanOrEqualTo: self.trailingAnchor, constant: -8),
+            ])
+        }
         
         valueLabel.font = UIFont.systemFont(ofSize: 25, weight: .semibold)
         titleLabel.font = UIFont.systemFont(ofSize: 18, weight: .light)
         
-        titleLabel.adjustsFontSizeToFitWidth = true
-        valueLabel.adjustsFontSizeToFitWidth = true
-        
-        titleLabel.textAlignment = .center
-        valueLabel.textAlignment = .center
-        
-        layer.cornerRadius = 12
-        clipsToBounds      = true
-        
-        addSubview(titleLabel)
-        addSubview(valueLabel)
-        
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        valueLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            valueLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -bounds.height * 0.15),
-            valueLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: 0),
-            valueLabel.leadingAnchor.constraint(greaterThanOrEqualTo: self.leadingAnchor, constant: 8),
-            valueLabel.trailingAnchor.constraint(greaterThanOrEqualTo: self.trailingAnchor, constant: -8),
-            
-            titleLabel.topAnchor.constraint(equalTo: valueLabel.bottomAnchor, constant: 8),
-            titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: 0),
-            titleLabel.leadingAnchor.constraint(greaterThanOrEqualTo: self.leadingAnchor, constant: 8),
-            titleLabel.trailingAnchor.constraint(greaterThanOrEqualTo: self.trailingAnchor, constant: -8)
-
+            valueLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor,
+                                                constant: -bounds.height * 0.15),
+            titleLabel.topAnchor.constraint(equalTo: valueLabel.bottomAnchor,
+                                            constant: 8),
         ])
     }
 

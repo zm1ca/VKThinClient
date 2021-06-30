@@ -18,11 +18,7 @@ class AvatarImageView: UIImageView {
         contentMode = .scaleAspectFill
         layer.masksToBounds = false
         layer.backgroundColor = UIColor.systemPink.cgColor
-        print(frame, bounds)
-        if frame.height == frame.width {
-            layer.cornerRadius = frame.width / 2
-            print("round")
-        }
+        layer.cornerRadius = frame.width / 2
         clipsToBounds      = true
         layer.borderColor  = UIColor.gray.cgColor
         layer.borderWidth  = 3
