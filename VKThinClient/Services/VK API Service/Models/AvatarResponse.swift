@@ -12,5 +12,5 @@ struct AvatarResponseWrapped: Decodable {
 }
 
 struct AvatarResponse: Decodable {
-    let photo100: String?
+    let photo400Orig: String?
 }

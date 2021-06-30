@@ -62,7 +62,7 @@ extension VkAPIService: TargetType {
             )
         case .getUserAvatar:
             return .requestParameters(
-                parameters: params(appending: ["user_ids": authService.userId!, "fields": "photo_100"]),
+                parameters: params(appending: ["user_ids": authService.userId!, "fields": "photo_400_orig"]),
                 encoding: URLEncoding.queryString
             )
         case .getFriends:

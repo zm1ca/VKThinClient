@@ -12,6 +12,8 @@ class ProfileVC: UIViewController {
     ///FIX: massive code duplication
     
     let dataFetcher = DataFetchingService()
+    
+    private var requestsYetToMake = 4
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var contentView:     UIView!
@@ -29,6 +31,7 @@ class ProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         contentView.subviews.forEach { $0.alpha = 0 }
+        contentView.isUserInteractionEnabled = false
         configireUI()
     }
     
@@ -47,12 +50,12 @@ class ProfileVC: UIViewController {
     //MARK: Configuration
     private func setAvatar() {
         dataFetcher.getUserAvatar { result in
-            guard let result = result, let avatarURL = result.photo100 else { return }
+            guard let result = result, let avatarURL = result.photo400Orig else { return }
             ImageLoader.shared.downloadImage(from: avatarURL) { image in
                 guard let image = image else { return }
                 DispatchQueue.main.async { [self] in
                     self.avatarImageView.image = image
-                    presentUIIfNeeded()
+                    presentUIIfEveryElementDidLoad()
                 }
             }
         }
@@ -63,12 +66,12 @@ class ProfileVC: UIViewController {
             guard let profileResponse = profileResponse else { return } //alert
             DispatchQueue.main.async { [self] in
                 self.nameLabel.text = profileResponse.name
-                self.idLabel.text   = "#\(profileResponse.id)"
+                self.idLabel.text   = "id\(profileResponse.id)"
                 detailsBlock1.set(title: "Sex",      value: sex(by: profileResponse.sex))
                 detailsBlock2.set(title: "Relation", value: relation(by: profileResponse.relation))
                 detailsBlock3.set(title: "Birthday", value: profileResponse.bdate)
                 detailsBlock4.set(title: "City",     value: city(from: profileResponse.homeTown))
-                presentUIIfNeeded()
+                presentUIIfEveryElementDidLoad()
             }
         }
         
@@ -76,7 +79,7 @@ class ProfileVC: UIViewController {
             guard let friendsCount = friendsCount else { return }
             DispatchQueue.main.async { [self] in
                 detailsBlock5.set(title: "Friends", value: "\(friendsCount)")
-                presentUIIfNeeded()
+                presentUIIfEveryElementDidLoad()
             }
         }
         
@@ -84,28 +87,22 @@ class ProfileVC: UIViewController {
             guard let subscriptionsCount = subscriptionsCount else { return }
             DispatchQueue.main.async { [self] in
                 detailsBlock6.set(title: "Subscriptions", value: "\(subscriptionsCount)")
-                presentUIIfNeeded()
+                presentUIIfEveryElementDidLoad()
             }
         }
     }
     
-    private func presentUIIfNeeded() {
-        guard activityIndicator.isAnimating else { return }
+    private func presentUIIfEveryElementDidLoad() {
+        guard requestsYetToMake - 1 == 0 else {requestsYetToMake -= 1; return }
         UIView.animate(withDuration: 1) {
             self.contentView.subviews.forEach { $0.alpha = 1.0 }
         }
+        contentView.isUserInteractionEnabled = true
         self.activityIndicator.stopAnimating()
     }
     
     //MARK: Handle tap
     @IBAction func contentViewTapped(_ sender: Any) {
-        let view = contentView!
-        if view.backgroundColor == .white {
-            view.backgroundColor = .systemTeal
-        } else {
-            view.backgroundColor = .white
-        }
-        
         let fliptype: UIView.AnimationOptions = avatarImageView.isHidden ? .transitionFlipFromRight : .transitionFlipFromLeft
         UIView.transition(with: contentView, duration: 0.75, options: [fliptype]) { [weak self] in
             guard let self = self else { return }
