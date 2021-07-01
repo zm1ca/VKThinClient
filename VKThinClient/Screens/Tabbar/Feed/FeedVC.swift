@@ -14,6 +14,9 @@ class FeedVC: UITableViewController {
     var groups   = [Group]()
     var profiles = [Profile]()
     
+    var feedOffset: String?
+    var isLoadingMoreFollowers = false
+    
     let dataFetcher = DataFetchingService()
     
     override func viewDidLoad() {
@@ -41,15 +44,16 @@ class FeedVC: UITableViewController {
     }
     
     private func loadPostsAndUpdateUI() {
-        dataFetcher.getPosts { feedResponse in
+        dataFetcher.getPosts(startingFrom: feedOffset) { feedResponse in
             guard let feed = feedResponse else {
                 self.presentAlertOnMainThread(withTitle: "Networking Error", andMessage: "Unable to load feed.\nPlease check your internet connection")
                 return
             }
             
-            self.posts    = feed.items
-            self.groups   = feed.groups
-            self.profiles = feed.profiles
+            self.feedOffset = feed.nextFrom
+            self.posts.append(contentsOf: feed.items)
+            self.groups.append(contentsOf: feed.groups)
+            self.profiles.append(contentsOf: feed.profiles)
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -87,5 +91,16 @@ extension FeedVC {
     
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         UIView()
+    }
+    
+    override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let offsetY         = scrollView.contentOffset.y
+        let contentHeight   = scrollView.contentSize.height
+        let screenHeight    = scrollView.frame.size.height
+        
+        if offsetY > contentHeight - screenHeight {
+            guard !isLoadingMoreFollowers else { return }
+            loadPostsAndUpdateUI()
+        }
     }
 }

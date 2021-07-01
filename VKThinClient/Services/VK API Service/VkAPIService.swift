@@ -9,7 +9,7 @@ import Foundation
 import Moya
 
 enum VkAPIService {
-    case getPosts
+    case getPosts(startingFrom: String?)
     case getProfileInfo
     case getUserAvatar
     case getFriends
@@ -50,9 +50,9 @@ extension VkAPIService: TargetType {
     
     var task: Task {
         switch self {
-        case .getPosts:
+        case .getPosts(let offset):
             return .requestParameters(
-                parameters: params(appending: ["filters": "post", "count": 20]),
+                parameters: params(appending: ["filters": "post", "count": 20, "start_from": offset as Any]),
                 encoding: URLEncoding.queryString
             )
         case .getProfileInfo:

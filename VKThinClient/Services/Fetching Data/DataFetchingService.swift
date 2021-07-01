@@ -12,8 +12,8 @@ class DataFetchingService {
     
     let feedProvider = MoyaProvider<VkAPIService>()
     
-    func getPosts(completion: @escaping (FeedResponse?) -> Void) {
-        feedProvider.request(.getPosts) { result in
+    func getPosts(startingFrom offset: String?, completion: @escaping (FeedResponse?) -> Void) {
+        feedProvider.request(.getPosts(startingFrom: offset)) { result in
             switch result {
             case .success(let response):
                 let wrappedResponse = self.decodeJSON(
