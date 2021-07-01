@@ -20,12 +20,22 @@
                                 <rect key="frame" x="20" y="261" width="374" height="374"/>
                                 <color key="backgroundColor" name="bgColor"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Launching App..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I7m-Dc-Ahs">
+                                <rect key="frame" x="20" y="643" width="374" height="169"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="bgColor"/>
                         <constraints>
                             <constraint firstItem="Nzq-4c-6eN" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="1PC-f2-HJL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="I7m-Dc-Ahs" secondAttribute="bottom" constant="50" id="Icm-fD-S6h"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Nzq-4c-6eN" secondAttribute="trailing" constant="20" id="LOE-dm-c0A"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="I7m-Dc-Ahs" secondAttribute="trailing" constant="20" id="dCx-A1-E6X"/>
+                            <constraint firstItem="I7m-Dc-Ahs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="daC-0l-D73"/>
+                            <constraint firstItem="I7m-Dc-Ahs" firstAttribute="top" secondItem="Nzq-4c-6eN" secondAttribute="bottom" constant="8" id="e0E-Ud-4qa"/>
                             <constraint firstItem="Nzq-4c-6eN" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="eqj-6W-Yqz"/>
                             <constraint firstItem="Nzq-4c-6eN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="zHZ-hP-WJj"/>
                             <constraint firstItem="Nzq-4c-6eN" firstAttribute="width" secondItem="Nzq-4c-6eN" secondAttribute="height" multiplier="1:1" id="zNy-xs-uaL"/>
