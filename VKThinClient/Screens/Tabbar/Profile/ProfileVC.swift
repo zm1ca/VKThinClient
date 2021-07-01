@@ -9,7 +9,7 @@ import UIKit
 
 class ProfileVC: UIViewController {
     
-    let dataFetcher = DataFetchingService()
+    let dataFetcher = DataFetcher()
     private var requestsYetToMake = 4 //magic number :(
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -27,6 +27,8 @@ class ProfileVC: UIViewController {
     
     @IBOutlet weak var signOutButton: UIButton!
     
+    
+    //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         contentView.subviews.forEach { $0.alpha = 0 }
@@ -39,6 +41,8 @@ class ProfileVC: UIViewController {
         self.navigationController?.visibleViewController?.title = "Profile"
     }
     
+    
+    //MARK: Configuration
     private func configireUI() {
         view.bringSubviewToFront(activityIndicator)
         contentView.layer.cornerRadius   = 10
@@ -50,7 +54,8 @@ class ProfileVC: UIViewController {
         setProfileInfo()
     }
     
-    //MARK: Configuration
+    
+    //MARK: Populating view with fetched daata
     private func setAvatar() {
         dataFetcher.getUserAvatar { result in
             guard let result = result, let avatarURL = result.photo400Orig else { return }
@@ -104,7 +109,7 @@ class ProfileVC: UIViewController {
         self.activityIndicator.stopAnimating()
     }
     
-    //MARK: Handle tap
+    //MARK: Handling actions
     @IBAction func contentViewTapped(_ sender: Any) {
         let fliptype: UIView.AnimationOptions = avatarImageView.isHidden ? .transitionFlipFromRight : .transitionFlipFromLeft
         UIView.transition(with: contentView, duration: 0.75, options: [fliptype]) { [weak self] in
@@ -116,38 +121,5 @@ class ProfileVC: UIViewController {
     @IBAction func signoutButtonTapped(_ sender: Any) {
         print("Signout")
         SceneDelegate.shared().authService.vkLogout()
-    }
-    
-}
-
-extension ProfileVC {
-    //Would be better to add DetailType call that in and switch. Consider MVVM
-    private func sex(by id: Int) -> String {
-        switch id {
-        case 0: return  "Not set"
-        case 1: return  "Female"
-        case 2: return  "Male"
-        default: return "Other"
-        }
-    }
-    
-    private func relation(by id: Int) -> String {
-        switch id {
-        case 0: return "Not Set"
-        case 1: return "Single"
-        case 2: return "Relationship"
-        case 3: return "Engaged"
-        case 4: return "Married"
-        case 5: return "Complicated"
-        case 6: return "Searchijg"
-        case 7: return "In Love"
-        case 8: return "Civil"
-        default: return "Other"
-        }
-    }
-    
-    private func city(from fetchedCity: String) -> String {
-        guard !fetchedCity.isEmpty else { return "Not Set" }
-        return fetchedCity
     }
 }

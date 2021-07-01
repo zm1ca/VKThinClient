@@ -13,6 +13,8 @@ class LoginVC: UIViewController {
     private var authService: AuthService!
     @IBOutlet weak var authPendingLabel: UILabel!
     
+    
+    //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         authService = SceneDelegate.shared().authService
@@ -24,6 +26,8 @@ class LoginVC: UIViewController {
         authService.wakeUpSession()
     }
     
+    
+    //MARK: Configuration
     private func showAuthPendingLabel() {
         self.authPendingLabel.alpha = 1
         UIView.transition(with: authPendingLabel, duration: 1, options: [.curveEaseIn, .repeat, .autoreverse]) {

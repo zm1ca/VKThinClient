@@ -31,10 +31,10 @@
             </objects>
             <point key="canvasLocation" x="121.73913043478262" y="72.991071428571431"/>
         </scene>
-        <!--TabbarVC-->
+        <!--Tab Bar Controller-->
         <scene sceneID="VLK-wt-FLR">
             <objects>
-                <tabBarController storyboardIdentifier="TabbarVC" automaticallyAdjustsScrollViewInsets="NO" id="ReN-hi-hpJ" customClass="TabbarVC" customModule="VKThinClient" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabbarVC" automaticallyAdjustsScrollViewInsets="NO" id="ReN-hi-hpJ" customClass="TabBarController" customModule="VKThinClient" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="3gd-AJ-ooo"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bNc-Hx-bgg">

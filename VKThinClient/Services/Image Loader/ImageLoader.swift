@@ -10,8 +10,11 @@ import RealmSwift
 
 class ImageLoader  {
     
+    //MARK: Singleton
     static let shared = ImageLoader()
+    private init() { }
       
+    //MARK: Persistance variables
     let realm = try! Realm()
     lazy var cache: [String: UIImage] = {
         var cache = [String: UIImage]()
@@ -21,8 +24,7 @@ class ImageLoader  {
         return cache
     }()
     
-    private init() { }
-    
+    //MARK: Image Loader Public API
     func downloadImage(from urlString: String, completed: @escaping (UIImage?) -> Void) {
         if let image = cache[urlString] {
             completed(image)
@@ -38,8 +40,8 @@ class ImageLoader  {
             guard let self = self,
                   error == nil,
                   let response = response as? HTTPURLResponse, response.statusCode == 200,
-                  let data = data,
-                  let image = UIImage(data: data) else {
+                  let data     = data,
+                  let image    = UIImage(data: data) else {
                 completed(nil)
                 return
             }

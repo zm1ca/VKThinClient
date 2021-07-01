@@ -1,5 +1,5 @@
 //
-//  DataFetchingService.swift
+//  DataFetcher.swift
 //  VKThinClient
 //
 //  Created by Źmicier Fiedčanka on 29.06.21.
@@ -8,7 +8,9 @@
 import Foundation
 import Moya
 
-class DataFetchingService {
+///TODO: fix code duplication by adding protocol WrappedResponse with var response and associatedType
+///Consider creating two data Fetchers: for feed and profile, united by protocol DataFetcher
+class DataFetcher {
     
     let feedProvider = MoyaProvider<VkAPIService>()
     
@@ -27,8 +29,6 @@ class DataFetchingService {
         }
     }
     
-    ///TODO: fix code duplication by adding protocol WrappedResponse with var response and associatedType
-    ///Consider creating two data Fetchers: for feed and profile, united by protocol DataFetcher
     func getProfileInfo(completion: @escaping (ProfileResponse?) -> Void) {
         feedProvider.request(.getProfileInfo) { result in
             switch result {
@@ -88,8 +88,10 @@ class DataFetchingService {
             }
         }
     }
-    
-    private func decodeJSON<T: Decodable>(type: T.Type, from data: Data?) -> T? {
+}
+
+extension DataFetcher {
+    func decodeJSON<T: Decodable>(type: T.Type, from data: Data?) -> T? {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         guard let data = data, let response = try? decoder.decode(type, from: data) else { return nil }

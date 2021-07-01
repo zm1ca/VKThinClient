@@ -38,6 +38,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 }
 
 
+//MARK: VK API Specific functions
 extension SceneDelegate: AuthServiceDelegate {
     func authServiceLogout() {
         let loginVC = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginVC") as! LoginVC

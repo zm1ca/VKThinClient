@@ -1,5 +1,5 @@
 //
-//  FeedVC.swift
+//  FeedTVC.swift
 //  VKThinClient
 //
 //  Created by Źmicier Fiedčanka on 28.06.21.
@@ -8,7 +8,7 @@
 import UIKit
 import Moya
 
-class FeedVC: UITableViewController {
+class FeedTVC: UITableViewController {
     
     var posts    = [Post]()
     var groups   = [Group]()
@@ -17,14 +17,24 @@ class FeedVC: UITableViewController {
     var feedOffset: String?
     var isLoadingMoreFollowers = false
     
-    let dataFetcher = DataFetchingService()
+    let dataFetcher = DataFetcher()
     
+    
+    //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.backgroundColor = #colorLiteral(red: 0.9567961097, green: 0.9567961097, blue: 0.9567961097, alpha: 1)
         configureRefreshControl()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.visibleViewController?.title = "Feed"
+        loadPostsAndUpdateUI()
+    }
+    
+    
+    //MARK: Configuration
     private func configureRefreshControl() {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
@@ -37,12 +47,8 @@ class FeedVC: UITableViewController {
         self.refreshControl?.endRefreshing()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.visibleViewController?.title = "Feed"
-        loadPostsAndUpdateUI()
-    }
     
+    //MARK: Populating UI with fetched data
     private func loadPostsAndUpdateUI() {
         dataFetcher.getPosts(startingFrom: feedOffset) { feedResponse in
             guard let feed = feedResponse else {
@@ -62,7 +68,7 @@ class FeedVC: UITableViewController {
     }
 }
 
-extension FeedVC {
+extension FeedTVC {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         posts.count - 1 //TODO: catch bug

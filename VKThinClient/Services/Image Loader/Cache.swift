@@ -23,7 +23,7 @@ class Cache: Object {
 }
 
 class CacheElement: Object  {
-    @objc dynamic var id: String = ""
+    @objc dynamic var id:        String = ""
     @objc dynamic var imageData: NSData = NSData()
     
     convenience init(id: String, imageData: NSData) {
