@@ -1,4 +1,5 @@
 # VKThinClient
+![Preview](https://github.com/zm1ca/VKThinClient/blob/main/preview.jpg)
 
 ## Build
 For app to be able to be built it's required that you run `pod install` in root directory (since it uses CocoaPods, you may need to install it). 
@@ -20,6 +21,7 @@ Run via `.xcworkspace` file.
 - UI updates performed on the main thread
 - Used both Programmatic UI and Storyboard UI
 - Neat appicon (in api.vk.com too) :)
+- Animated indicator presented while auth request is pending
 
 important: no dark mode support or logout (yet). Check backlog in isssues tab of that repo, feel free to contribute
 
