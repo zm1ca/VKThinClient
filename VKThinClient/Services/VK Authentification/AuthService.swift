@@ -33,12 +33,9 @@ class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
         let scope = ["offline", "wall", "friends", "status"]
         VKSdk.wakeUpSession(scope) { [delegate] state, error in
             switch state {
-            case .initialized:
-                VKSdk.authorize(scope)
-            case .authorized:
-                delegate?.authServiceSignIn()
-            default:
-                delegate?.authServiceSignInDidFail()
+            case .initialized: VKSdk.authorize(scope)
+            case .authorized:  delegate?.authServiceSignIn()
+            default:           delegate?.authServiceSignInDidFail()
             }
         }
     }

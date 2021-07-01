@@ -55,6 +55,6 @@ extension SceneDelegate: AuthServiceDelegate {
     }
     
     func authServiceSignInDidFail() {
-        print(#function)
+        window?.rootViewController?.presentAlertOnMainThread(withTitle: "Auth failed", andMessage: "Contact administrator")
     }
 }

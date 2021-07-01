@@ -82,7 +82,7 @@ class DataFetcher {
                     type: SubscriptionsResponseWrapped.self,
                     from: response.data
                 )
-                completion(response?.response.count)
+                completion(response?.response.groups.count)
             case .failure(_):
                 completion(nil)
             }

@@ -43,6 +43,7 @@ class FeedTVC: UITableViewController {
     }
     
     @objc private func handleRefresh() {
+        feedOffset = nil
         loadPostsAndUpdateUI()
         self.refreshControl?.endRefreshing()
     }

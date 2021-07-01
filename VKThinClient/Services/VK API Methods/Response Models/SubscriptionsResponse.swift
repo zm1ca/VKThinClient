@@ -8,9 +8,13 @@
 import Foundation
 
 struct SubscriptionsResponseWrapped: Decodable {
-    let response: FriendsResponse
+    let response: SubscriptionsResponse
 }
 
 struct SubscriptionsResponse: Decodable {
+    let groups: GroupResponse
+}
+
+struct GroupResponse: Decodable {
     let count: Int
 }

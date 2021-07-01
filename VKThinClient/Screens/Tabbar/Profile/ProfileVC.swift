@@ -91,10 +91,10 @@ class ProfileVC: UIViewController {
             }
         }
         
-        dataFetcher.getFriendsCount { subscriptionsCount in
+        dataFetcher.getSubscriptionsCount { subscriptionsCount in
             guard let subscriptionsCount = subscriptionsCount else { return }
             DispatchQueue.main.async { [self] in
-                detailsBlock6.set(title: "Subscriptions", value: "\(subscriptionsCount)")
+                detailsBlock6.set(title: "Groups", value: "\(subscriptionsCount)")
                 presentUIIfEveryElementDidLoad()
             }
         }
@@ -119,7 +119,6 @@ class ProfileVC: UIViewController {
     }
     
     @IBAction func signoutButtonTapped(_ sender: Any) {
-        print("Signout")
         SceneDelegate.shared().authService.vkLogout()
     }
 }
