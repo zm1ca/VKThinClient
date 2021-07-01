@@ -9,11 +9,8 @@ import UIKit
 
 class ProfileVC: UIViewController {
     
-    ///FIX: massive code duplication
-    
-    let dataFetcher = DataFetchingService()
-    
-    private var requestsYetToMake = 4
+    let dataFetcher = DataFetcher()
+    private var requestsYetToMake = 4 //magic number :(
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var contentView:     UIView!
@@ -28,6 +25,10 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var detailsBlock5: ProfileDetailsView!
     @IBOutlet weak var detailsBlock6: ProfileDetailsView!
     
+    @IBOutlet weak var signOutButton: UIButton!
+    
+    
+    //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         contentView.subviews.forEach { $0.alpha = 0 }
@@ -40,14 +41,21 @@ class ProfileVC: UIViewController {
         self.navigationController?.visibleViewController?.title = "Profile"
     }
     
+    
+    //MARK: Configuration
     private func configireUI() {
         view.bringSubviewToFront(activityIndicator)
-        contentView.layer.cornerRadius = 10
+        contentView.layer.cornerRadius   = 10
+        signOutButton.layer.cornerRadius = 16
+        signOutButton.layer.borderWidth  = 1
+        signOutButton.backgroundColor    = #colorLiteral(red: 0.9841352105, green: 0.9841352105, blue: 0.9841352105, alpha: 1)
+        signOutButton.layer.borderColor  = UIColor.gray.cgColor
         setAvatar()
         setProfileInfo()
     }
     
-    //MARK: Configuration
+    
+    //MARK: Populating view with fetched daata
     private func setAvatar() {
         dataFetcher.getUserAvatar { result in
             guard let result = result, let avatarURL = result.photo400Orig else { return }
@@ -101,7 +109,7 @@ class ProfileVC: UIViewController {
         self.activityIndicator.stopAnimating()
     }
     
-    //MARK: Handle tap
+    //MARK: Handling actions
     @IBAction func contentViewTapped(_ sender: Any) {
         let fliptype: UIView.AnimationOptions = avatarImageView.isHidden ? .transitionFlipFromRight : .transitionFlipFromLeft
         UIView.transition(with: contentView, duration: 0.75, options: [fliptype]) { [weak self] in
@@ -109,36 +117,9 @@ class ProfileVC: UIViewController {
             self.contentView.subviews.forEach { $0.isHidden.toggle() }
         }
     }
-}
-
-extension ProfileVC {
-    //Would be better to add DetailType call that in and switch. Consider MVVM
-    private func sex(by id: Int) -> String {
-        switch id {
-        case 0: return  "Not set"
-        case 1: return  "Female"
-        case 2: return  "Male"
-        default: return "Other"
-        }
-    }
     
-    private func relation(by id: Int) -> String {
-        switch id {
-        case 0: return "Not Set"
-        case 1: return "Single"
-        case 2: return "Relationship"
-        case 3: return "Engaged"
-        case 4: return "Married"
-        case 5: return "Complicated"
-        case 6: return "Searchijg"
-        case 7: return "In Love"
-        case 8: return "Civil"
-        default: return "Other"
-        }
-    }
-    
-    private func city(from fetchedCity: String) -> String {
-        guard !fetchedCity.isEmpty else { return "Not Set" }
-        return fetchedCity
+    @IBAction func signoutButtonTapped(_ sender: Any) {
+        print("Signout")
+        SceneDelegate.shared().authService.vkLogout()
     }
 }

@@ -25,8 +25,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         authService = AuthService()
         authService.delegate = self
-        let authVC = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
-        window?.rootViewController = authVC
+        let loginVC = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+        window?.rootViewController = loginVC
         window?.makeKeyAndVisible()
     }
     
@@ -38,10 +38,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 }
 
 
+//MARK: VK API Specific functions
 extension SceneDelegate: AuthServiceDelegate {
     func authServiceLogout() {
-        let authVC = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
-        window?.rootViewController?.present(authVC, animated: true, completion: nil)
+        let loginVC = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+        window?.rootViewController = loginVC
     }
     
     func authServiceShouldShow(viewController: UIViewController) {

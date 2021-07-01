@@ -16,6 +16,7 @@ struct FeedResponse: Decodable {
     let items: [Post]
     var profiles: [Profile]
     var groups: [Group]
+    var nextFrom: String?
 }
 
 struct Post: Decodable {

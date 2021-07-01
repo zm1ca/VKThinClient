@@ -1,5 +1,5 @@
 //
-//  TabbarVC.swift
+//  TabbarController.swift
 //  VKThinClient
 //
 //  Created by Źmicier Fiedčanka on 28.06.21.
@@ -7,8 +7,9 @@
 
 import UIKit
 
-class TabbarVC: UITabBarController {
+class TabBarController: UITabBarController {
 
+    //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
