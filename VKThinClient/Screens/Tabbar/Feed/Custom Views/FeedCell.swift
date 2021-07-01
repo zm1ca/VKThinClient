@@ -43,7 +43,7 @@ class FeedCell: UITableViewCell {
         postTextLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
         postTextLabel.sizeToFit()
         sourceNameLabel.adjustsFontSizeToFitWidth = true
-        sourceNameLabel.minimumScaleFactor = 0.5
+        sourceNameLabel.minimumScaleFactor = 0.8
         authorPhotoImageView.layer.cornerRadius = authorPhotoImageView.layer.bounds.width / 2
     }
 
