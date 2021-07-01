@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EM3-gY-h9r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,17 +13,17 @@
             <objects>
                 <viewController id="EM3-gY-h9r" customClass="ProfileVC" customModule="VKThinClient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hYg-Hr-lfM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Z7V-bm-ScK">
-                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <rect key="frame" x="141.5" y="265.5" width="37" height="37"/>
                             </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lkn-fp-1yv">
-                                <rect key="frame" x="16" y="76" width="382" height="754"/>
+                                <rect key="frame" x="16" y="32" width="288" height="504"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PoX-Xy-Ghg" customClass="AvatarImageView" customModule="VKThinClient" customModuleProvider="target">
-                                        <rect key="frame" x="91" y="137" width="200" height="200"/>
+                                        <rect key="frame" x="44" y="12" width="200" height="200"/>
                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" priority="998" constant="200" id="CSz-1r-C2n"/>
@@ -31,7 +31,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dzmitry Fedchanka" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xve-Ig-Vtq">
-                                        <rect key="frame" x="8" y="357" width="366" height="40"/>
+                                        <rect key="frame" x="8" y="232" width="272" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Uz2-gu-gbf"/>
                                             <constraint firstAttribute="height" priority="750" id="hWT-So-y73"/>
@@ -41,58 +41,58 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZd-nu-KxH">
-                                        <rect key="frame" x="191" y="405" width="0.0" height="0.0"/>
+                                        <rect key="frame" x="144" y="280" width="0.0" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile Details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vdi-8V-Tk9">
-                                        <rect key="frame" x="16" y="129.5" width="350" height="43"/>
+                                        <rect key="frame" x="16" y="48.5" width="256" height="43"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="36"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="CR6-VX-fby">
-                                        <rect key="frame" x="16" y="204.5" width="350" height="345"/>
+                                        <rect key="frame" x="16" y="123.5" width="256" height="257"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="X1u-bH-kuY">
-                                                <rect key="frame" x="0.0" y="0.0" width="350" height="104.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="256" height="75"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PMs-sZ-dlR" customClass="ProfileDetailsView" customModule="VKThinClient" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="167" height="104.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="120" height="75"/>
                                                         <color key="backgroundColor" white="0.90000000000000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="PMs-sZ-dlR" secondAttribute="height" multiplier="16:10" id="WiD-kn-Bhm"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sqf-xu-JBa" customClass="ProfileDetailsView" customModule="VKThinClient" customModuleProvider="target">
-                                                        <rect key="frame" x="183" y="0.0" width="167" height="104.5"/>
+                                                        <rect key="frame" x="136" y="0.0" width="120" height="75"/>
                                                         <color key="backgroundColor" white="0.90000000000000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="RrV-zm-cGj">
-                                                <rect key="frame" x="0.0" y="120.5" width="350" height="104"/>
+                                                <rect key="frame" x="0.0" y="91" width="256" height="75"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NI2-aR-eiE" customClass="ProfileDetailsView" customModule="VKThinClient" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="167" height="104"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="120" height="75"/>
                                                         <color key="backgroundColor" white="0.90000000000000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Apz-QQ-wbf" customClass="ProfileDetailsView" customModule="VKThinClient" customModuleProvider="target">
-                                                        <rect key="frame" x="183" y="0.0" width="167" height="104"/>
+                                                        <rect key="frame" x="136" y="0.0" width="120" height="75"/>
                                                         <color key="backgroundColor" white="0.90000000000000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="bBn-cg-Yld">
-                                                <rect key="frame" x="0.0" y="240.5" width="350" height="104.5"/>
+                                                <rect key="frame" x="0.0" y="182" width="256" height="75"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fUl-j2-7Lx" customClass="ProfileDetailsView" customModule="VKThinClient" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="167" height="104.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="120" height="75"/>
                                                         <color key="backgroundColor" white="0.90000000000000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rKw-pt-PRO" customClass="ProfileDetailsView" customModule="VKThinClient" customModuleProvider="target">
-                                                        <rect key="frame" x="183" y="0.0" width="167" height="104.5"/>
+                                                        <rect key="frame" x="136" y="0.0" width="120" height="75"/>
                                                         <color key="backgroundColor" white="0.90000000000000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                 </subviews>
@@ -103,6 +103,19 @@
                                             <constraint firstItem="NI2-aR-eiE" firstAttribute="height" secondItem="PMs-sZ-dlR" secondAttribute="height" id="N93-nV-bAZ"/>
                                         </constraints>
                                     </stackView>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L32-9U-ud5">
+                                        <rect key="frame" x="84" y="444" width="120" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="ZG2-TU-uZ7"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="23"/>
+                                        <state key="normal" title="Sign Out">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="signoutButtonTapped:" destination="EM3-gY-h9r" eventType="touchUpInside" id="oiN-7h-6cU"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <gestureRecognizers/>
@@ -115,7 +128,6 @@
                                     <constraint firstItem="CR6-VX-fby" firstAttribute="top" relation="greaterThanOrEqual" secondItem="vdi-8V-Tk9" secondAttribute="bottom" constant="16" id="C3Q-fs-XuW"/>
                                     <constraint firstItem="SZd-nu-KxH" firstAttribute="top" secondItem="Xve-Ig-Vtq" secondAttribute="bottom" constant="8" id="Lcs-0p-awH"/>
                                     <constraint firstItem="vdi-8V-Tk9" firstAttribute="leading" secondItem="Lkn-fp-1yv" secondAttribute="leading" constant="16" id="MRI-9e-lSN"/>
-                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="CR6-VX-fby" secondAttribute="bottom" constant="8" id="OTn-ol-2fi"/>
                                     <constraint firstAttribute="trailing" secondItem="vdi-8V-Tk9" secondAttribute="trailing" constant="16" id="ThA-Mp-TB0"/>
                                     <constraint firstItem="PoX-Xy-Ghg" firstAttribute="centerX" secondItem="Lkn-fp-1yv" secondAttribute="centerX" id="TnX-AM-dbI"/>
                                     <constraint firstItem="vdi-8V-Tk9" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Lkn-fp-1yv" secondAttribute="top" constant="16" id="WNS-iO-TWG"/>
@@ -123,10 +135,13 @@
                                     <constraint firstItem="SZd-nu-KxH" firstAttribute="centerX" secondItem="Lkn-fp-1yv" secondAttribute="centerX" id="Z2V-nw-zhA"/>
                                     <constraint firstItem="Xve-Ig-Vtq" firstAttribute="centerY" secondItem="Lkn-fp-1yv" secondAttribute="centerY" priority="800" id="c63-Ro-op5"/>
                                     <constraint firstItem="CR6-VX-fby" firstAttribute="leading" secondItem="Lkn-fp-1yv" secondAttribute="leading" constant="16" id="en8-83-AJM"/>
+                                    <constraint firstAttribute="bottom" secondItem="L32-9U-ud5" secondAttribute="bottom" constant="20" id="fkn-v9-fcj"/>
                                     <constraint firstItem="CR6-VX-fby" firstAttribute="top" secondItem="vdi-8V-Tk9" secondAttribute="bottom" priority="500" constant="32" id="i3j-w4-c69"/>
                                     <constraint firstItem="PoX-Xy-Ghg" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Lkn-fp-1yv" secondAttribute="top" priority="850" constant="8" id="izj-6B-kIG"/>
                                     <constraint firstItem="CR6-VX-fby" firstAttribute="centerY" secondItem="Lkn-fp-1yv" secondAttribute="centerY" priority="500" id="lIj-Le-kQv"/>
                                     <constraint firstItem="Xve-Ig-Vtq" firstAttribute="centerX" secondItem="Lkn-fp-1yv" secondAttribute="centerX" id="nDG-6r-dWu"/>
+                                    <constraint firstItem="L32-9U-ud5" firstAttribute="centerX" secondItem="Lkn-fp-1yv" secondAttribute="centerX" id="s1b-qL-iQi"/>
+                                    <constraint firstItem="L32-9U-ud5" firstAttribute="top" relation="greaterThanOrEqual" secondItem="CR6-VX-fby" secondAttribute="bottom" constant="16" id="xZE-zY-Q5t"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -163,6 +178,7 @@
                         <outlet property="detailsBlock6" destination="rKw-pt-PRO" id="e4a-jX-MuI"/>
                         <outlet property="idLabel" destination="SZd-nu-KxH" id="0qY-Qo-UUj"/>
                         <outlet property="nameLabel" destination="Xve-Ig-Vtq" id="LT2-uk-75c"/>
+                        <outlet property="signOutButton" destination="L32-9U-ud5" id="fRh-9b-pBd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="88U-qu-JIS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

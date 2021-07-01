@@ -9,11 +9,8 @@ import UIKit
 
 class ProfileVC: UIViewController {
     
-    ///FIX: massive code duplication
-    
     let dataFetcher = DataFetchingService()
-    
-    private var requestsYetToMake = 4
+    private var requestsYetToMake = 4 //magic number :(
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var contentView:     UIView!
@@ -27,6 +24,8 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var detailsBlock4: ProfileDetailsView!
     @IBOutlet weak var detailsBlock5: ProfileDetailsView!
     @IBOutlet weak var detailsBlock6: ProfileDetailsView!
+    
+    @IBOutlet weak var signOutButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +41,11 @@ class ProfileVC: UIViewController {
     
     private func configireUI() {
         view.bringSubviewToFront(activityIndicator)
-        contentView.layer.cornerRadius = 10
+        contentView.layer.cornerRadius   = 10
+        signOutButton.layer.cornerRadius = 16
+        signOutButton.layer.borderWidth  = 1
+        signOutButton.backgroundColor    = #colorLiteral(red: 0.9841352105, green: 0.9841352105, blue: 0.9841352105, alpha: 1)
+        signOutButton.layer.borderColor  = UIColor.gray.cgColor
         setAvatar()
         setProfileInfo()
     }
@@ -109,6 +112,12 @@ class ProfileVC: UIViewController {
             self.contentView.subviews.forEach { $0.isHidden.toggle() }
         }
     }
+    
+    @IBAction func signoutButtonTapped(_ sender: Any) {
+        print("Signout")
+        SceneDelegate.shared().authService.vkLogout()
+    }
+    
 }
 
 extension ProfileVC {

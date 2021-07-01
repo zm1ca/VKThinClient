@@ -15,16 +15,19 @@ class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        authPendingLabel.alpha = 0
-        UIView.transition(with: authPendingLabel, duration: 1, options: [.curveLinear]) {
-            self.authPendingLabel.alpha = 1
-        }
-
         authService = SceneDelegate.shared().authService
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+        super.viewDidAppear(animated)
+        showAuthPendingLabel()
         authService.wakeUpSession()
+    }
+    
+    private func showAuthPendingLabel() {
+        self.authPendingLabel.alpha = 1
+        UIView.transition(with: authPendingLabel, duration: 1, options: [.curveEaseIn, .repeat, .autoreverse]) {
+            self.authPendingLabel.alpha = 0
+        }
     }
 }
